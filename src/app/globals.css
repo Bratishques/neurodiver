@@ -39,6 +39,20 @@
   --colorGreen: #ACFF2B;
   --colorCyan: #17ECFF;
   --colorBorder: #FFA65D;
+  
+  /* neuro test popup colors */
+  --popupOverlay: rgba(0, 0, 0, 0.5);
+  --popupBg: #1F1F1F;
+  --popupText: #FFFFFF;
+  --popupTextSecondary: #9CA3AF;
+  --popupButtonBg: #363A3D;
+  --popupButtonHover: #444444;
+  --popupButtonActive: #555555;
+  --popupButtonCircle: #374151;
+  --popupCloseHover: #D1D5DB;
+  --popupResultButton: #FFFFFF;
+  --popupResultButtonHover: #E5E7EB;
+  --popupResultText: #000000;
 }
 
 @theme inline {
@@ -65,6 +79,20 @@
   --color-colorGreen: var(--colorGreen);
   --color-colorCyan: var(--colorCyan);
   --color-colorBorder: var(--colorBorder);
+  
+  /* neuro test popup colors */
+  --color-popupOverlay: var(--popupOverlay);
+  --color-popupBg: var(--popupBg);
+  --color-popupText: var(--popupText);
+  --color-popupTextSecondary: var(--popupTextSecondary);
+  --color-popupButtonBg: var(--popupButtonBg);
+  --color-popupButtonHover: var(--popupButtonHover);
+  --color-popupButtonActive: var(--popupButtonActive);
+  --color-popupButtonCircle: var(--popupButtonCircle);
+  --color-popupCloseHover: var(--popupCloseHover);
+  --color-popupResultButton: var(--popupResultButton);
+  --color-popupResultButtonHover: var(--popupResultButtonHover);
+  --color-popupResultText: var(--popupResultText);
 }
 
 

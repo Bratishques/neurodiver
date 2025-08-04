@@ -95,7 +95,7 @@ const FirstScreen = () => {
               </Link>
               <button
                 onClick={openNeuroTest}
-                className="rounded-xl text-xl p-6 max-w-65 leading-5 bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all duration-200"
+                className="rounded-xl text-xl p-6 cursor-pointer max-w-65 leading-5 bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all duration-200"
               >
                 Take the Neurotype Test
               </button>
