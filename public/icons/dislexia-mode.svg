@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+  <g clip-path="url(#clip0_619_1650)" filter="url(#filter0_g_619_1650)">
+    <path d="M1.87468 8.23206C1.81912 8.08238 1.81912 7.91773 1.87468 7.76806C2.41581 6.45596 3.33435 5.33408 4.51386 4.54466C5.69336 3.75523 7.08071 3.3338 8.50001 3.3338C9.91932 3.3338 11.3067 3.75523 12.4862 4.54466C13.6657 5.33408 14.5842 6.45596 15.1253 7.76806C15.1809 7.91773 15.1809 8.08238 15.1253 8.23206C14.5842 9.54415 13.6657 10.666 12.4862 11.4555C11.3067 12.2449 9.91932 12.6663 8.50001 12.6663C7.08071 12.6663 5.69336 12.2449 4.51386 11.4555C3.33435 10.666 2.41581 9.54415 1.87468 8.23206Z" stroke="#AAFF26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M8.5 9.99998C9.60457 9.99998 10.5 9.10455 10.5 7.99998C10.5 6.89541 9.60457 5.99998 8.5 5.99998C7.39543 5.99998 6.5 6.89541 6.5 7.99998C6.5 9.10455 7.39543 9.99998 8.5 9.99998Z" stroke="#AAFF26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+    <filter id="filter0_g_619_1650" x="0.15" y="-0.35" width="16.7" height="16.7" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.22727270424365997 0.22727270424365997" numOctaves="3" seed="7647"/>
+      <feDisplacementMap in="shape" scale="0.69999998807907104" xChannelSelector="R" yChannelSelector="G" result="displacedImage" width="100%" height="100%"/>
+      <feMerge result="effect1_texture_619_1650">
+        <feMergeNode in="displacedImage"/>
+      </feMerge>
+    </filter>
+    <clipPath id="clip0_619_1650">
+      <rect width="16" height="16" fill="white" transform="translate(0.5)"/>
+    </clipPath>
+  </defs>
+</svg>
