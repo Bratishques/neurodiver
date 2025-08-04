@@ -14,7 +14,7 @@ const ScrollPhone = () => {
           className="w-6 h-6"
         />
       </div>
-
+        
       <div className="w-full mt-16">
         <Image
           src="/images/metrics-bunny.png"
