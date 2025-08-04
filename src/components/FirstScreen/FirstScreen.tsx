@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Header from '../Header/Header';
+import TrollingButton from './TrollingButton';
 
 const FirstScreen = () => {
   const handleCopy = () => {
@@ -77,13 +78,10 @@ const FirstScreen = () => {
                 </p>
               </div>
 
-              <div className="absolute bottom-8 right-8">
-                <button
-                  className="bg-white text-black text-xl py-6 px-4 rounded-xl"
-                  disabled={true}
-                >
+              <div className="absolute inset-0 z-100">
+                <TrollingButton>
                   Receive Airdrop
-                </button>
+                </TrollingButton>
               </div>
 
               <div className="absolute bottom-0 top-5 left-0 w-[93%] h-full opacity-40 mix-blend-luminosity">
