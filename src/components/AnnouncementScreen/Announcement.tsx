@@ -16,11 +16,11 @@ const Announcement = () => {
   return (
     <div className="w-full bg-announcement relative pb-50">
       <div className="pt-17.5">
-        <p className="font-secondary text-[80px] tracking-tighter leading-[80px] mx-auto w-fit text-center mb-12">
+        <h3 className="font-secondary text-80 tracking-tighter mx-auto w-fit text-center mb-12">
           Real reactions.
           <br /> Community memes. <br />
           Neurotype journeys.
-        </p>
+        </h3>
 
         <div className="relative h-126.5 overflow-hidden">
           <Marquee

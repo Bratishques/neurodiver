@@ -27,6 +27,11 @@
 
   /* buttons */
   --ctaButton: #131619;
+  
+  /* metrics table colors */
+  --metricsBorder: #761E86;
+  --metricsBg: #9021A4;
+  --firstScreenAccent: #B687FA;
 }
 
 @theme inline {
@@ -39,10 +44,13 @@
   --font-secondary: 'FreeCheese', sans-serif;
   --font-third: 'OpenDyslexic', sans-serif;
 
-
-
   /* buttons */
   --color-ctaButton: var(--ctaButton);
+  
+  /* metrics table colors */
+  --color-metricsBorder: var(--metricsBorder);
+  --color-metricsBg: var(--metricsBg);
+  --color-firstScreenAccent: var(--firstScreenAccent);
 }
 
 
@@ -57,5 +65,16 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+.bg-metrics {
+  background-image: url('/images/metrics-bg.png');
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
+.text-80 {
+  font-size: 80px;
+  line-height: 80px;
 }
 

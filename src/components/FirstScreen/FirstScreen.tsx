@@ -14,11 +14,11 @@ const FirstScreen = () => {
         <Header />
         <div className="flex w-full text-white mt-26 justify-between">
           <div className="w-1/2 flex flex-col gap-12 mt-14">
-            <p className="text-[80px] leading-20 font-secondary -tracking-wider">
+            <h3 className="text-80 leading-20 font-secondary -tracking-wider">
               A new kind of OS.
               <br />
               For different kinds of minds.
-            </p>
+            </h3>
 
             <div className="flex flex-col gap-6">
               <span className="text-2xl leading-9">
@@ -26,7 +26,7 @@ const FirstScreen = () => {
                 around neurodivergent cognition — and the AI agents that support
                 it.
               </span>
-              <div className="bg-[#B687FA] rounded-xl pl-6 p-4 flex items-center gap-6 max-w-[86%]">
+              <div className="bg-firstScreenAccent rounded-xl pl-6 p-4 flex items-center gap-6 max-w-[86%]">
                 <div className="font-bold opacity-50 font-secondary text-2xl">
                   CA
                 </div>
