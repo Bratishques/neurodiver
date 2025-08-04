@@ -92,6 +92,10 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
+
+.bg-phoneContent {
+  background-color: #FFF0CF;
+}
 .text-80 {
   font-size: 80px;
   line-height: 80px;

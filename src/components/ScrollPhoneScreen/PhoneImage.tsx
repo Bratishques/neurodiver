@@ -23,7 +23,7 @@ export const PhoneImage = ({ children, ...props }: PhoneImageProps) => (
     </svg>
     
     <div className="absolute inset-0 z-20 flex items-center justify-center">
-      <div className="w-[87.7%] h-[95%] bg-white p-2 sm:p-3 md:p-4 rounded-[32px] overflow-y-scroll">
+      <div className="w-[87.7%] h-[95%] bg-white rounded-[32px] overflow-y-scroll">
         {children}
       </div>
     </div>
