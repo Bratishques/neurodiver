@@ -13,7 +13,7 @@ const Header = () => {
         <span className="opacity-50">Modes</span>
 
         <div className="flex items-center gap-6">
-          <Link href="" className="flex gap-3">
+          <Link href="/" className="flex gap-3">
             <Image
               src="/icons/classic-mode.svg"
               width="16"
@@ -22,7 +22,7 @@ const Header = () => {
             />
             <span className="leading-4.5">Classic</span>
           </Link>
-          <Link href="" className="flex gap-3">
+          <Link href="/dislexia" className="flex gap-3">
             <Image
               src="/icons/dislexia-mode.svg"
               width="16"
@@ -31,7 +31,7 @@ const Header = () => {
             />
             <span className="">Dislexia</span>
           </Link>
-          <Link href="" className="flex gap-3">
+          <Link href="/adhd" className="flex gap-3">
             <Image
               src="/icons/ahdh-mode.svg"
               width="16"
@@ -40,7 +40,7 @@ const Header = () => {
             />
             <span className="">ADHD</span>
           </Link>
-          <Link href="" className="flex gap-3">
+          <Link href="/bipolar" className="flex gap-3">
             <Image
               src="/icons/bipolar-mode.svg"
               width="16"

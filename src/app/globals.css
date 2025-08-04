@@ -32,6 +32,13 @@
   --metricsBorder: #761E86;
   --metricsBg: #9021A4;
   --firstScreenAccent: #B687FA;
+  
+  /* colored text colors */
+  --colorOrange: #FFB55A;
+  --colorWhite: #FFFFFF;
+  --colorGreen: #ACFF2B;
+  --colorCyan: #17ECFF;
+  --colorBorder: #FFA65D;
 }
 
 @theme inline {
@@ -51,6 +58,13 @@
   --color-metricsBorder: var(--metricsBorder);
   --color-metricsBg: var(--metricsBg);
   --color-firstScreenAccent: var(--firstScreenAccent);
+  
+  /* colored text colors */
+  --color-colorOrange: var(--colorOrange);
+  --color-colorWhite: var(--colorWhite);
+  --color-colorGreen: var(--colorGreen);
+  --color-colorCyan: var(--colorCyan);
+  --color-colorBorder: var(--colorBorder);
 }
 
 

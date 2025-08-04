@@ -8,15 +8,37 @@ interface TrollingButtonProps {
 
 const TrollingButton = ({ className = '', children }: TrollingButtonProps) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [isInitialized, setIsInitialized] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const setInitialPosition = () => {
+      if (containerRef.current && buttonRef.current) {
+        const container = containerRef.current;
+        const button = buttonRef.current;
+
+        const containerRect = container.getBoundingClientRect();
+        const buttonRect = button.getBoundingClientRect();
+
+        const initialY = (containerRect.height - buttonRect.height) / 2;
+        const initialX = containerRect.width - buttonRect.width - 40;
+
+        setPosition({ x: initialX, y: initialY });
+        setIsInitialized(true);
+      }
+    };
+
+    const timer = setTimeout(setInitialPosition, 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   const moveButton = () => {
     if (!containerRef.current || !buttonRef.current) return;
 
     const container = containerRef.current.getBoundingClientRect();
     const button = buttonRef.current.getBoundingClientRect();
-    
+
     const containerWidth = container.width;
     const containerHeight = container.height;
     const buttonWidth = button.width;
@@ -40,7 +62,7 @@ const TrollingButton = ({ className = '', children }: TrollingButtonProps) => {
   };
 
   return (
-    <div 
+    <div
       ref={containerRef}
       className="absolute inset-0"
       style={{ width: '100%', height: '100%' }}
@@ -51,6 +73,7 @@ const TrollingButton = ({ className = '', children }: TrollingButtonProps) => {
         style={{
           left: `${position.x}px`,
           top: `${position.y}px`,
+          opacity: isInitialized ? 1 : 0,
         }}
         onMouseEnter={handleMouseEnter}
         onClick={handleClick}
@@ -66,4 +89,4 @@ const TrollingButton = ({ className = '', children }: TrollingButtonProps) => {
   );
 };
 
-export default TrollingButton; 
+export default TrollingButton;
