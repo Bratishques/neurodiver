@@ -5,7 +5,7 @@ import MetricsTable from './MetricsTable';
 
 const MetricsScreen = () => {
   return (
-    <div className="flex flex-col w-full bg-metrics pt-41">
+    <div className="flex flex-col w-full bg-metrics pt-22 -mt-3">
       <div className="flex flex-col w-[64%] text-center mx-auto text-white font-secondary">
         <h3 className="text-80 tracking-tighter">Live Metrics</h3>
 

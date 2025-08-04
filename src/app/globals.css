@@ -72,7 +72,12 @@ body {
   background-position: top;
   background-repeat: no-repeat;
 }
-
+.bg-scrollPhone {
+  background-image: url('/images/phone-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .text-80 {
   font-size: 80px;
   line-height: 80px;
