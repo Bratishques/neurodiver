@@ -4,8 +4,12 @@ import Link from 'next/link';
 import Header from '../Header/Header';
 import TrollingButton from './TrollingButton';
 import FloatingLetter from '../FloatingLetter/FloatingLetter';
+import NeuroTestPopup from '../NeuroTestPopup/NeuroTestPopup';
+import { useNeuroTestContext } from '../NeuroTestPopup/NeuroTestContext';
 
 const FirstScreen = () => {
+  const { isNeuroTestOpen, openNeuroTest, closeNeuroTest } = useNeuroTestContext();
+  
   const handleCopy = () => {
     navigator.clipboard.writeText('0xA1B2C3D4E5F67890ABCDEF1234567890ABCDEF12');
   };
@@ -89,12 +93,12 @@ const FirstScreen = () => {
               >
                 Buy $NEURO
               </Link>
-              <Link
-                href=""
-                className="rounded-xl text-xl p-6 max-w-65 leading-5 bg-white/20"
+              <button
+                onClick={openNeuroTest}
+                className="rounded-xl text-xl p-6 max-w-65 leading-5 bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all duration-200"
               >
                 Take the Neurotype Test
-              </Link>
+              </button>
             </div>
           </div>
 
@@ -125,6 +129,11 @@ const FirstScreen = () => {
           </div>
         </div>
       </div>
+
+      <NeuroTestPopup 
+        isOpen={isNeuroTestOpen} 
+        onClose={closeNeuroTest} 
+      />
     </div>
   );
 };

@@ -1,8 +1,12 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
+import NeuroTestPopup from '../NeuroTestPopup/NeuroTestPopup';
+import { useNeuroTestContext } from '../NeuroTestPopup/NeuroTestContext';
 
 const Footer = () => {
+  const { isNeuroTestOpen, openNeuroTest, closeNeuroTest } = useNeuroTestContext();
+
   return (
     <footer className="bg-footerBg p-2.5 text-white flex flex-row my-auto items-center justify-between px-17 pt-13 pb-20">
       <div className="flex justify-between w-full items-start">
@@ -29,12 +33,12 @@ const Footer = () => {
           >
             Buy $NEURO
           </Link>
-          <Link
-            href=""
-            className="rounded-xl text-xl p-6 max-w-65 leading-5 bg-white/20"
+          <button
+            onClick={openNeuroTest}
+            className="rounded-xl text-xl p-6 max-w-65 leading-5 bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all duration-200"
           >
             Take the Neurotype Test
-          </Link>
+          </button>
           <div className="flex items-center gap-8.5">
             <Link href="">
               <Image src="/icons/x.svg" width="48" height="48" alt="x-icon" />
@@ -61,6 +65,11 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
+      <NeuroTestPopup 
+        isOpen={isNeuroTestOpen} 
+        onClose={closeNeuroTest} 
+      />
     </footer>
   );
 };
