@@ -64,7 +64,7 @@ const MetricsTable = () => {
                         {metric.title}
                       </div>
                       <div
-                        className={`text-5xl ${metric.isGreen ? 'text-green-400' : ''}`}
+                        className={`text-5xl ${metric.isGreen ? 'text-[#75FF7C]' : ''}`}
                       >
                         {metric.value}
                       </div>

@@ -5,9 +5,9 @@ import Link from 'next/link';
 const Header = () => {
   return (
     <header className="flex items-center h-14 justify-between bg-headerBg text-white mt-16 px-6 py-4 rounded-3xl w-full max-w-screen">
-      <div className="text-white text-[22px] font-secondary font-bold tracking-tighter">
+      <Link href="/" className="text-white text-[22px] font-secondary font-bold tracking-tighter">
         NEURODIVERGENT
-      </div>
+      </Link>
 
       <nav className="flex items-center font-normal font-third gap-6 text-xs text-white">
         <span className="opacity-50">Modes</span>

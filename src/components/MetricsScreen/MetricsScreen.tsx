@@ -37,12 +37,12 @@ const MetricsScreen = () => {
 
         <MetricsTable />
 
-        <div className="flex flex-col items-center gap-16">
+        <div className="flex flex-col items-center gap-9">
           <p className="text-80 tracking-tighter">CEX Listings</p>
           <p className="text-[64px] leading-19 tracking-[20px]">Coming Soon</p>
           <Link
             href=""
-            className="bg-white p-6 px-10 text-black font-main rounded-xl text-xl leading-5"
+            className="bg-white mt-4 p-6 px-10 text-black font-main rounded-xl text-xl leading-5"
           >
             Buy $NEURO
           </Link>
