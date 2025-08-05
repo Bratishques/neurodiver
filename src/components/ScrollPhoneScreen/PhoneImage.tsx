@@ -5,7 +5,7 @@ interface PhoneImageProps extends React.SVGProps<SVGSVGElement> {
 }
 
 export const PhoneImage = ({ children, ...props }: PhoneImageProps) => (
-  <div className="relative  w-full max-w-[496px] h-auto aspect-[496/1000] mx-auto">
+  <div className="relative w-full max-w-[496px] h-auto aspect-[496/1000] mx-auto max-lg:max-w-[371px]">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="100%"

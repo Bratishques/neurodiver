@@ -18,10 +18,10 @@ const Header = ({ mode }: HeaderProps) => {
 
   return (
     <>
-     <header className="flex items-center h-10 sm:h-12 md:h-14 justify-between bg-headerBg text-white mt-8 sm:mt-12 md:mt-16 px-4 sm:px-5 md:px-6 py-2 sm:py-3 md:py-4 rounded-2xl sm:rounded-3xl w-full md:max-w-screen">
+     <header className="flex items-center h-10 md:h-12 lg:h-14 justify-between bg-headerBg text-white mt-8 md:mt-12 lg:mt-16 px-4 md:px-5 lg:px-6 py-2 md:py-3 lg:py-4 rounded-2xl md:rounded-3xl w-full lg:max-w-screen">
         <button
           onClick={toggleMenu}
-          className="sm:hidden flex items-center justify-center w-6 h-6"
+          className="md:hidden flex items-center justify-center w-6 h-6"
           aria-label="Toggle menu"
         >
           <BurgerIcon />
@@ -29,7 +29,7 @@ const Header = ({ mode }: HeaderProps) => {
 
         <Link
           href="/"
-          className="text-white text-[20px] sm:text-base md:text-lg lg:text-[22px] font-secondary font-bold tracking-tighter"
+          className="text-white text-[20px] md:text-base lg:text-lg xl:text-[22px] font-secondary font-bold tracking-tighter"
         >
           {mode === 'dislexia' || mode === 'bipolar' ? (
             <ColoredText
@@ -41,62 +41,62 @@ const Header = ({ mode }: HeaderProps) => {
           )}
         </Link>
 
-        <nav className="hidden sm:flex items-center font-normal font-third gap-1 sm:gap-4 md:gap-6 text-[7px] text-white">
-          <span className="opacity-50 text-[7px] sm:text-sm">Modes</span>
+        <nav className="hidden md:flex items-center font-normal font-third gap-1 md:gap-4 lg:gap-6 text-[7px] text-white">
+          <span className="opacity-50 text-[7px] md:text-sm">Modes</span>
 
-          <div className="flex items-center gap-1 sm:gap-2 md:gap-6">
-            <Link href="/" className="flex gap-1 sm:gap-1">
+          <div className="flex items-center gap-1 md:gap-2 lg:gap-6">
+            <Link href="/" className="flex gap-1 md:gap-1">
               <Image
                 src="/icons/classic-mode.svg"
                 width="12"
                 height="12"
-                className="sm:w-4 sm:h-4"
+                className="md:w-4 md:h-4"
                 alt="classic-icon"
               />
-              <span className="leading-4.5 text-[7px] sm:text-[10px]">
+              <span className="leading-4.5 text-[7px] md:text-[10px]">
                 Classic
               </span>
             </Link>
-            <Link href="/dislexia" className="flex gap-1 sm:gap-1">
+            <Link href="/dislexia" className="flex gap-1 md:gap-1">
               <Image
                 src="/icons/dislexia-mode.svg"
                 width="12"
                 height="12"
-                className="sm:w-4 sm:h-4"
+                className="md:w-4 md:h-4"
                 alt="classic-icon"
               />
-              <span className="text-[7px] sm:text-[10px]">Dislexia</span>
+              <span className="text-[7px] md:text-[10px]">Dislexia</span>
             </Link>
-            <Link href="/adhd" className="flex gap-1 sm:gap-1">
+            <Link href="/adhd" className="flex gap-1 md:gap-1">
               <Image
                 src="/icons/ahdh-mode.svg"
                 width="12"
                 height="12"
-                className="sm:w-4 sm:h-4"
+                className="md:w-4 md:h-4"
                 alt="classic-icon"
               />
-              <span className="text-[7px] sm:text-[10px]">ADHD</span>
+              <span className="text-[7px] md:text-[10px]">ADHD</span>
             </Link>
-            <Link href="/bipolar" className="flex gap-1 sm:gap-1">
+            <Link href="/bipolar" className="flex gap-1 md:gap-1">
               <Image
                 src="/icons/bipolar-mode.svg"
                 width="12"
                 height="12"
-                className="sm:w-4 sm:h-4"
+                className="md:w-4 md:h-4"
                 alt="classic-icon"
               />
-              <span className="text-[7px] sm:text-[10px]">Bipolar</span>
+              <span className="text-[7px] md:text-[10px]">Bipolar</span>
             </Link>
           </div>
         </nav>
 
-        <div className="flex items-center gap-1 sm:gap-2">
+        <div className="flex items-center gap-1 md:gap-2">
           <Link href="">
             <Image
               src="/icons/x.svg"
               width="16"
               height="16"
-              className="sm:w-6 sm:h-6"
+              className="md:w-6 md:h-6"
               alt="x-icon"
             />
           </Link>
@@ -105,7 +105,7 @@ const Header = ({ mode }: HeaderProps) => {
               src="/icons/tg.svg"
               width="16"
               height="16"
-              className="sm:w-6 sm:h-6"
+              className="md:w-6 md:h-6"
               alt="tg-icon"
             />
           </Link>
@@ -114,14 +114,14 @@ const Header = ({ mode }: HeaderProps) => {
               src="/icons/tiktok.svg"
               width="16"
               height="16"
-              className="sm:w-6 sm:h-6"
+              className="md:w-6 md:h-6"
               alt="tiktok-icon"
             />
           </Link>
           <Link href="">
             <Image
               src="/icons/bird.svg"
-              className="max-h-4 sm:max-h-6 w-4 h-4 sm:w-6 sm:h-6"
+              className="max-h-4 md:max-h-6 w-4 h-4 md:w-6 md:h-6"
               width="16"
               height="16"
               alt="bird-icon"
@@ -133,7 +133,7 @@ const Header = ({ mode }: HeaderProps) => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="fixed inset-0 z-50 sm:hidden"
+            className="fixed inset-0 z-50 md:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

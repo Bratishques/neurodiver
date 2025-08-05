@@ -58,18 +58,18 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
         </div>
       </div>
 
-      <div className="md:px-40 px-8 relative z-10">
+      <div className="lg:px-40 px-8 relative z-10">
         <Header />
         <div className="flex w-full text-white md:mt-26 mt-8 justify-between md:gap-4">
-          <div className="md:w-1/2 flex flex-col sm:gap-12 md:gap-12 gap-6 md:mt-14 mt-8">
-            <h3 className="text-4xl leading-7 sm:text-[80px] sm:leading-[80px] font-secondary -tracking-wider md:text-[80px] md:leading-[80px]">
+          <div className="lg:w-1/2 flex flex-col md:gap-12 gap-6 md:mt-14 mt-8">
+            <h3 className="text-4xl leading-7 md:text-[80px] md:leading-[80px] font-secondary -tracking-wider ">
               A new kind of OS.
               <br />
               For different kinds of minds.
             </h3>
 
             <div className="flex flex-col md:gap-6 gap-4">
-              <span className="sm:leading-9 md:text-2xl md:leading-9 text-sm leading-5">
+              <span className="md:leading-9 md:text-2xl text-sm leading-5 max-md:max-w-[76%] max-sm:max-w-full">
                 We're building the world's first operating system designed
                 around neurodivergent cognition — and the AI agents that support
                 it.
@@ -117,13 +117,13 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
               <div className="flex gap-2 md:gap-6 sm:gap-2">
                 <Link
                   href=""
-                  className="bg-white sm:p-6 p-3 md:p-6 p-1 text-black rounded-xl md:text-xl text-xs md:max-w-43 max-w-20  md:leading-5 leading-3"
+                  className="bg-white sm:p-6 p-3 md:p-6 p-1 text-black rounded-xl md:text-xl text-xl max-sm:text-xs md:max-w-43 max-md:max-w-80 md:leading-5 leading-3"
                 >
                   Buy $NEURO
                 </Link>
                 <button
                   onClick={openNeuroTest}
-                  className="rounded-xl md:text-xl text-xs sm:p-6 p-3 md:p-6 p-1 cursor-pointer md:max-w-65 max-w-24 md:leading-5 leading-3 bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all duration-200"
+                  className="rounded-xl md:text-xl max-sm:text-xs text-xl sm:p-6 p-3 md:p-6 p-1 cursor-pointer md:max-w-65 md:leading-5 max-md:max-w-80 leading-3 bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all duration-200"
                 >
                   Take the Neurotype Test
                 </button>
@@ -131,7 +131,7 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
             )}
           </div>
 
-          <div className="relative w-1/2 z-20 hidden md:block">
+          <div className="relative w-1/2 z-20 hidden lg:block">
             <div className="rounded-[36px] py-12 px-38 h-full min-h-[45vh] border-2 border-dashed border-white/30 relative bg-firstScreenBg">
               <div className="text-center mb-4">
                 <p className="text-white/20 text-[32px] font-medium">

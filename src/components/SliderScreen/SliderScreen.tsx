@@ -90,7 +90,7 @@ const SliderScreen = () => {
       </button>
 
       <div className="absolute bottom-11 left-0 right-0 flex items-center justify-center z-10">
-        <div className="w-full max-w-[70%] px-4">
+        <div className="w-full max-w-[70%] px-4 max-3xl:max-w-[95%]">
           <Swiper
             modules={[Thumbs]}
             onSwiper={setThumbsSwiper}
@@ -101,7 +101,7 @@ const SliderScreen = () => {
             className="!h-37.5"
           >
             {slides.map((src, idx) => (
-              <SwiperSlide key={idx}>
+              <SwiperSlide className="!max-3xl:mr-0" key={idx}>
                 <div className="w-50 h-37.5 relative cursor-pointer rounded-2xl overflow-hidden transition-all duration-300 shadow-md group">
                   <Image
                     src={src}
