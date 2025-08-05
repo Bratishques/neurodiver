@@ -56,7 +56,7 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
         </div>
       </div>
 
-      <div className="md:px-16 px-8 relative z-10">
+      <div className="md:px-40 px-8 relative z-10">
         <Header />
         <div className="flex w-full text-white md:mt-26 mt-8 justify-between md:gap-4">
           <div className="md:w-1/2 flex flex-col sm:gap-12 md:gap-12 gap-6 mt-14 md:mt-14 mt-8">
