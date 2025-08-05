@@ -6,15 +6,9 @@ import TrollingButton from './TrollingButton';
 import FloatingLetter from '../FloatingLetter/FloatingLetter';
 import NeuroTestPopup from '../NeuroTestPopup/NeuroTestPopup';
 import { useNeuroTestContext } from '../NeuroTestPopup/NeuroTestContext';
-import ColoredText from '../ColoredText';
 
-interface FirstScreenProps {
-  mode?: string;
-}
-
-const FirstScreen = ({ mode }: FirstScreenProps) => {
-  const { isNeuroTestOpen, openNeuroTest, closeNeuroTest } =
-    useNeuroTestContext();
+const FirstScreen = () => {
+  const { isNeuroTestOpen, openNeuroTest, closeNeuroTest } = useNeuroTestContext();
 
   const handleCopy = () => {
     navigator.clipboard.writeText('0xA1B2C3D4E5F67890ABCDEF1234567890ABCDEF12');
@@ -22,6 +16,7 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
 
   return (
     <div className="bg-firstScreenBg pb-50 flex flex-col h-full items-center relative">
+
       <FloatingLetter
         src="/icons/bipolar.svg"
         alt="bipolar"
@@ -58,60 +53,39 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
       </div>
 
       <div className="md:px-53 px-8 relative z-10">
-        <Header mode={mode} />
+        <Header />
         <div className="flex w-full text-white md:mt-26 mt-8 justify-between">
-          <div className="md:w-[53%] flex flex-col sm:gap-12 md:gap-12 gap-6 md:mt-14 mt-8">
-            <h3 className="2xl:text-[80px] 3xl:max-w-[90%] 2xl:leading-20 font-secondary -tracking-wider text-4xl leading-7">
-              {mode === 'dislexia' || mode === 'bipolar' ? (
-                <>
-                  <ColoredText
-                    className="font-third text-[54px] leading-0 font-extrabold tracking-tighter"
-                    text="A new kind of OS."
-                    letterClassName="inline-block"
-                  />
-                  <br />
-                  <ColoredText
-                    className="font-third text-[54px] leading-13 font-extrabold text-left"
-                    text="For different kinds of minds."
-                  />
-                </>
-              ) : (
-                <>
-                  A new kind of OS.
-                  For different kinds of minds.
-                </>
-              )}
+          <div className="md:w-1/2 flex flex-col sm:gap-12 md:gap-12 gap-6 mt-14 md:mt-14 mt-8">
+            <h3 className="sm:text-80 sm:leading-20 font-secondary -tracking-wider md:text-80 md:leading-20 text-4xl leading-7">
+              A new kind of OS.
+              <br />
+              For different kinds of minds.
             </h3>
 
-            <div className="flex flex-col 3xl:gap-6 gap-4">
-              <span
-                className={`sm:leading-9 md:text-2xl md:leading-9 text-sm leading-5 ${mode === 'dislexia' || mode === 'bipolar' ? 'font-third tracking-tighter' : ''}`}
-              >
+            <div className="flex flex-col gap-6 md:gap-6 gap-4">
+              <span className="text-2xl sm:leading-9 md:text-2xl md:leading-9 text-sm leading-5">
                 We're building the world's first operating system designed
                 around neurodivergent cognition — and the AI agents that support
                 it.
               </span>
-
-              <div className="bg-firstScreenAccent rounded-xl md:pl-6 md:p-4 pl-3 p-2 flex items-center 3xl:gap-6 gap-3 md:max-w-[98%]">
-                <div className="font-bold opacity-50 font-secondary md:text-2xl text-sm">
+              <div className="bg-firstScreenAccent rounded-xl pl-6 p-4 md:pl-6 md:p-4 pl-3 p-2 flex items-center gap-6 md:gap-6 gap-3 md:max-w-[86%]">
+                <div className="font-bold opacity-50 font-secondary text-2xl md:text-2xl text-sm">
                   CA
                 </div>
                 <div className="flex-1">
-                  <div className="bg-transparent text-white font-main md:text-xl text-xs w-full outline-none select-all break-all">
+                  <div
+                    className="bg-transparent text-white font-main text-xl md:text-xl text-xs w-full outline-none select-all break-all"
+                  >
                     0xA1B2C3D4E5F67890ABCDEF1234567890ABCDEF12
                   </div>
                 </div>
                 <button
                   onClick={handleCopy}
-                  className={`bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all ${mode === 'dislexia' || mode === 'bipolar' ? 'border-2 border-[#5DFAFF]' : ''} duration-200 rounded-[6px] md:p-3 p-2  cursor-pointer flex items-center justify-center`}
+                  className="bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all duration-200 rounded-[6px] p-3 md:p-3 p-2 cursor-pointer flex items-center justify-center"
                   title="Copy to clipboard"
                 >
                   <Image
-                    src={
-                      mode === 'dislexia' || mode === 'bipolar'
-                        ? '/icons/copy-icon-mode.svg'
-                        : '/icons/copy-icon.svg'
-                    }
+                    src="/icons/copy-icon.svg"
                     width="16"
                     height="16"
                     alt="copy-icon"
@@ -122,21 +96,21 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
             <div className="flex gap-2 md:gap-6 sm:gap-2">
               <Link
                 href=""
-                className="bg-white sm:p-6 md:p-6 p-1 text-black rounded-xl md:text-xl text-xs md:max-w-41 max-w-20 md:leading-5 leading-3"
+                className="bg-white sm:p-6 p-3 md:p-6 p-1 text-black rounded-xl text-xl md:text-xl text-xs max-w-41 md:max-w-41 max-w-20 leading-5 md:leading-5 leading-3"
               >
                 Buy $NEURO
               </Link>
               <button
                 onClick={openNeuroTest}
-                className="rounded-xl md:text-xl text-xs sm:p-6 md:p-6 p-1 cursor-pointer md:max-w-65 max-w-24 md:leading-5 leading-3 bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all duration-200"
+                className="rounded-xl text-xl md:text-xl text-xs sm:p-6 p-3 md:p-6 p-1 cursor-pointer max-w-65 md:max-w-65 max-w-24 leading-5 md:leading-5 leading-3 bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all duration-200"
               >
                 Take the Neurotype Test
               </button>
             </div>
           </div>
 
-          <div className="relative w-1/2 z-20">
-            <div className="rounded-[36px] py-12 px-21 h-full min-h-[45vh] border-2 border-dashed border-white/30 relative bg-firstScreenBg">
+          <div className="relative w-1/2 z-20 hidden md:block">
+            <div className="rounded-[36px] py-12 px-38 h-full min-h-[45vh] border-2 border-dashed border-white/30 relative bg-firstScreenBg">
               <div className="text-center mb-4">
                 <p className="text-white/20 text-[32px] font-medium">
                   It's much more advantageous
@@ -144,8 +118,10 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
                 </p>
               </div>
 
-              <div className="relative z-20 hidden md:block opacity-100">
-                <TrollingButton>Receive Airdrop</TrollingButton>
+              <div className="absolute inset-0 z-100">
+                <TrollingButton>
+                  Receive Airdrop
+                </TrollingButton>
               </div>
 
               <div className="absolute bottom-0 top-0 left-0 w-[90%] h-full opacity-40 mix-blend-luminosity z-30">
@@ -161,7 +137,10 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
         </div>
       </div>
 
-      <NeuroTestPopup isOpen={isNeuroTestOpen} onClose={closeNeuroTest} />
+      <NeuroTestPopup
+        isOpen={isNeuroTestOpen}
+        onClose={closeNeuroTest}
+      />
     </div>
   );
 };
