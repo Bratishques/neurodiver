@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { questions, testResults, type Question, type TestResult } from './data';
+import { questions, testResults, type TestResult } from './data';
 import { useNeuroTestContext } from './NeuroTestContext';
 
 interface NeuroTestPopupProps {
@@ -15,7 +15,7 @@ const NeuroTestPopup = ({ isOpen, onClose, mode }: NeuroTestPopupProps) => {
   const [answers, setAnswers] = useState<string[]>([]);
   const [currentResult, setCurrentResult] = useState<TestResult | null>(null);
   const [currentColorIndex, setCurrentColorIndex] = useState(0);
-  const [hasUsedBlack, setHasUsedBlack] = useState(false);
+
 
   const dislexiaColors = ['#FF41A4', '#78FF7F', '#FFB55A', '#17ECFF'];
   const blackColor = '#000000';
@@ -51,7 +51,7 @@ const NeuroTestPopup = ({ isOpen, onClose, mode }: NeuroTestPopupProps) => {
     setShowResults(false);
     setCurrentResult(null);
     setCurrentColorIndex(0);
-    setHasUsedBlack(false);
+
     onClose();
   };
 

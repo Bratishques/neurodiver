@@ -1,15 +1,23 @@
-import DislexiaPage from '@/pages/DislexiaPage';
-import ADHDPage from '@/pages/ADHDPage';
-import BipolarPage from '@/pages/BipolarPage';
+import DislexiaPage from '@/components/DislexiaPage';
+import ADHDPage from '@/components/ADHDPage';
+import BipolarPage from '@/components/BipolarPage';
 
 interface PageProps {
-  params: {
+  params: Promise<{
     mode: string;
-  };
+  }>;
 }
 
-export default function ModePage({ params }: PageProps) {
-  const { mode } = params;
+export async function generateStaticParams() {
+  return [
+    { mode: 'dislexia' },
+    { mode: 'adhd' },
+    { mode: 'bipolar' },
+  ];
+}
+
+export default async function ModePage({ params }: PageProps) {
+  const { mode } = await params;
 
   switch (mode) {
     case 'dislexia':

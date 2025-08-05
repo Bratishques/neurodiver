@@ -99,7 +99,7 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
               <span
                 className={`md:leading-9 md:text-2xl text-sm leading-5 max-md:max-w-[76%] max-sm:max-w-full ${mode === 'dislexia' || mode === 'bipolar' ? 'font-third' : ''}`}
               >
-                We're building the world's first operating system designed
+                We&apos;re building the world&apos;s first operating system designed
                 around neurodivergent cognition — and the AI agents that support
                 it.
               </span>
@@ -164,7 +164,7 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
             <div className="rounded-[36px] py-12 px-38 h-full min-h-[45vh] border-2 border-dashed border-white/30 relative bg-firstScreenBg">
               <div className="text-center mb-4">
                 <p className="text-white/20 text-[32px] font-medium">
-                  It's much more advantageous
+                  It&apos;s much more advantageous
                   <br /> to buy $NEURO here!
                 </p>
               </div>

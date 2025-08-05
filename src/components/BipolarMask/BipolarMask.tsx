@@ -38,7 +38,7 @@ const BipolarMask = ({ mode, currentQuestion }: BipolarMaskProps) => {
     return () => {
       document.body.classList.remove('bipolar-mode', 'bipolar-mode-left', 'bipolar-mode-right', 'bipolar-mode-center');
     };
-  }, [mode, currentQuestion, maskPosition]);
+  }, [mode, currentQuestion, maskPosition, isNeuroTestOpen, showResults]);
 
   if (!isVisible) return null;
 
