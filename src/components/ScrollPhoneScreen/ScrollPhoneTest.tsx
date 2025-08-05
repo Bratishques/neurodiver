@@ -4,28 +4,30 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PhoneImage } from './PhoneImage';
+import ColoredText from '../ColoredText';
+import FloatingLetter from '../FloatingLetter/FloatingLetter';
 
 interface PhoneSectionProps {
   onShowThirdSection: (show: boolean) => void;
+  mode?: string;
 }
 
-export function PhoneSection({ onShowThirdSection }: PhoneSectionProps) {
+export function PhoneSection({ onShowThirdSection, mode }: PhoneSectionProps) {
   const phoneRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [hasShownThirdSection, setHasShownThirdSection] = useState(false);
 
-  // Контент для экранов телефона
   const screenData = [
     {
       image: '/images/scroll-screens/phone-slide1.png',
-      title: 'WHAT IS\nTHE PROJECT?',
+      title: 'What is\n the project?',
       description:
         'A future-facing system for alternative minds.\nRespecting cognitive difference. Powered by\nneurotype-modeled AI.',
     },
     {
       image: '/images/scroll-screens/phone-slide2.png',
-      title: 'Who is\nthe character?',
+      title: 'Who is\n the character?',
       description:
         'Meet our symbol of perception beyond the norm.\nA figure representing the beauty of different minds.',
     },
@@ -37,6 +39,44 @@ export function PhoneSection({ onShowThirdSection }: PhoneSectionProps) {
     },
   ];
 
+  const floatingImages = [
+    {
+      src: '/images/phone-bunnies/green.png',
+      alt: 'Floating phone slide 1',
+      className: 'top-1/4 left-30',
+      size: 210,
+      customClasses: 'z-20'
+    },
+    {
+      src: '/images/phone-bunnies/pink2.png',
+      alt: 'Floating phone slide 2',
+      className: 'top-[10%] right-1/5',
+      size: 230,
+      customClasses: 'z-20'
+    },
+    {
+      src: '/images/phone-bunnies/green2.png',
+      alt: 'Floating phone slide 2',
+      className: 'top-1/3 right-20',
+      size: 230,
+      customClasses: 'z-20'
+    },
+    {
+      src: '/images/phone-bunnies/orange.png',
+      alt: 'Floating phone slide 3',
+      className: 'bottom-1/4 right-1/5',
+      size: 220,
+      customClasses: 'z-20'
+    },
+    {
+      src: '/images/phone-bunnies/pink.png',
+      alt: 'Floating phone slide 3',
+      className: 'bottom-1/4 left-1/5',
+      size: 240,
+      customClasses: 'z-20'
+    }
+  ];
+
   useEffect(() => {
     const handleScroll = () => {
       if (!phoneRef.current || !scrollContainerRef.current) return;
@@ -45,14 +85,11 @@ export function PhoneSection({ onShowThirdSection }: PhoneSectionProps) {
       const rect = phoneSection.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      // Проверяем, находимся ли мы в секции с телефоном
       if (rect.top <= 0 && rect.bottom >= windowHeight) {
-        // Вычисляем прогресс скролла внутри секции телефона
         const sectionHeight = phoneSection.offsetHeight - windowHeight;
         const scrolled = Math.abs(rect.top);
         const progress = Math.min(scrolled / sectionHeight, 1);
 
-        // Вычисляем текущий индекс слайда на основе прогресса
         const progressPerScreen = 1 / screenData.length;
         const newSlideIndex = Math.min(
           Math.floor(progress / progressPerScreen),
@@ -61,7 +98,6 @@ export function PhoneSection({ onShowThirdSection }: PhoneSectionProps) {
 
         setCurrentSlideIndex(newSlideIndex);
 
-        // Показываем третий блок только когда пользователь доскроллил до последнего слайда
         if (newSlideIndex >= screenData.length - 1 && !hasShownThirdSection) {
           setHasShownThirdSection(true);
           onShowThirdSection(true);
@@ -96,6 +132,18 @@ export function PhoneSection({ onShowThirdSection }: PhoneSectionProps) {
           backgroundAttachment: 'fixed',
         }}
       />
+
+      {/* Floating images */}
+      {floatingImages.map((image, index) => (
+        <FloatingLetter
+          key={index}
+          src={image.src}
+          alt={image.alt}
+          className={image.className}
+          size={image.size}
+          customClasses={image.customClasses}
+        />
+      ))}
 
       <div
         ref={scrollContainerRef}
@@ -148,12 +196,22 @@ export function PhoneSection({ onShowThirdSection }: PhoneSectionProps) {
 
                   <div className="mt-12">
                     <h2 className="font-secondary text-5xl font-bold leading-12 tracking-tighter">
-                      {screenData[currentSlideIndex].title}
+                      {mode === 'dislexia' || mode === 'bipolar' ? (
+                        <ColoredText
+                          text={screenData[currentSlideIndex].title}
+                          className="font-third text-4xl font-extrabold leading-12"
+                          letterClassName="inline"
+                          colors={['#329BFE', '#A30606', '#74B116', '#FF50BF', '#FFD11A']}
+                          preserveSpaces={false}
+                        />
+                      ) : (
+                        screenData[currentSlideIndex].title
+                      )}
                     </h2>
                   </div>
 
                   <div className="mt-6">
-                    <p className="font-main text-base leading-6">
+                    <p className={`font-main text-base leading-6 ${mode === 'dislexia' || mode === 'bipolar' ? 'font-third' : ''}`}>
                       {screenData[currentSlideIndex].description}
                     </p>
                   </div>
@@ -175,7 +233,7 @@ export function PhoneSection({ onShowThirdSection }: PhoneSectionProps) {
               <motion.div
                 key={index}
                 className={`w-2 h-2 rounded-full ${
-                  index === currentSlideIndex ? 'bg-yellow-400' : 'bg-gray-600'
+                  index === currentSlideIndex ? 'bg-white' : 'bg-gray-600'
                 }`}
                 initial={{ scale: 0.8, opacity: 0.5 }}
                 animate={{

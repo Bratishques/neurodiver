@@ -1,5 +1,5 @@
 import PageLayout from '@/components/Layout/PageLayout';
 
 export default function BipolarPage() {
-  return <PageLayout />;
+  return <PageLayout mode="bipolar" />;
 } 

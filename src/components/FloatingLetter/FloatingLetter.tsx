@@ -8,6 +8,7 @@ interface FloatingLetterProps {
   className: string;
   size?: number;
   customClasses?: string;
+  animationType?: 'normal' | 'slow' | 'fast';
 }
 
 const FloatingLetter = ({ 
@@ -15,10 +16,22 @@ const FloatingLetter = ({
   alt, 
   className,
   size = 40,
-  customClasses = ""
+  customClasses = "",
+  animationType = 'normal'
 }: FloatingLetterProps) => {
+  const getAnimationClass = () => {
+    switch (animationType) {
+      case 'slow':
+        return styles.floatingSlow;
+      case 'fast':
+        return styles.floatingFast;
+      default:
+        return styles.floating;
+    }
+  };
+
   return (
-    <div className={`absolute ${styles.floating} ${className} ${customClasses}`}>
+    <div className={`absolute ${getAnimationClass()} ${className} ${customClasses}`}>
       <Image
         src={src}
         alt={alt}

@@ -1,7 +1,11 @@
 'use client';
 import Image from 'next/image';
 
-const MetricsTable = () => {
+interface MetricsTableProps {
+  mode?: string;
+}
+
+const MetricsTable = ({ mode }: MetricsTableProps) => {
   const metricsData = [
     {
       title: 'Token Price',
@@ -48,7 +52,7 @@ const MetricsTable = () => {
 
   return (
     <div className="mt-10 mb-18">
-      <table className="border-collapse border-4 border-metricsBorder text-white font-secondary w-full">
+      <table className={`border-collapse border-4 border-metricsBorder text-white font-secondary w-full ${mode === 'dislexia' || mode === 'bipolar' ? 'font-third' : ''}`}>
         <tbody>
           {Array.from({ length: 4 }, (_, rowIndex) => (
             <tr key={rowIndex} className="flex">
@@ -60,7 +64,7 @@ const MetricsTable = () => {
                     className="border-4 border-metricsBorder bg-metricsBg p-9 text-xl w-1/2 flex justify-between items-center max-h-38"
                   >
                     <div className="flex flex-col text-left">
-                      <div className="text-2xl font-main mb-5 text-white/50">
+                      <div className={`text-2xl font-main mb-5 text-white/50 ${mode === 'dislexia' || mode === 'bipolar' ? 'font-third' : ''}`}>
                         {metric.title}
                       </div>
                       <div

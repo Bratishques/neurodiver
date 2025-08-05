@@ -7,6 +7,32 @@
   }
 }
 
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes floatFast {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
 .floating {
   animation: float 3s ease-in-out infinite;
+}
+
+.floatingSlow {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+.floatingFast {
+  animation: floatFast 2s ease-in-out infinite;
 } 

@@ -10,20 +10,21 @@ import { useState } from 'react';
 
 interface PageLayoutProps {
   children?: React.ReactNode;
+  mode?: string;
 }
 
-const PageLayout = ({ children }: PageLayoutProps) => {
+const PageLayout = ({ children, mode }: PageLayoutProps) => {
   const [showThirdSection, setShowThirdSection] = useState(false);
   return (
     <div className="">
-      <FirstScreen />
-      <PhoneSection onShowThirdSection={setShowThirdSection} />
+      <FirstScreen mode={mode} />
+      <PhoneSection onShowThirdSection={setShowThirdSection} mode={mode}/>
       {/* <ScrollPhone /> */}
       <div className={`${showThirdSection ? 'block' : 'hidden'}`}>
-        <MetricsScreen />
-        <Announcement />
+        <MetricsScreen mode={mode}/>
+        <Announcement mode={mode}/>
         <SliderScreen />
-        <Footer />
+        <Footer mode={mode}/>
         {children}
       </div>
     </div>

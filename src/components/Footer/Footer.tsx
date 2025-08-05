@@ -1,19 +1,32 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
+import ColoredText from '../ColoredText';
 import NeuroTestPopup from '../NeuroTestPopup/NeuroTestPopup';
 import { useNeuroTestContext } from '../NeuroTestPopup/NeuroTestContext';
 
-const Footer = () => {
-  const { isNeuroTestOpen, openNeuroTest, closeNeuroTest } = useNeuroTestContext();
+interface FooterProps {
+  mode?: string;
+}
+const Footer = ({ mode }: FooterProps) => {
+  const { isNeuroTestOpen, openNeuroTest, closeNeuroTest } =
+    useNeuroTestContext();
 
   return (
     <footer className="bg-footerBg p-2.5 text-white flex flex-row my-auto items-center justify-between px-17 pt-13 pb-20">
       <div className="flex justify-between w-full items-start">
         <div className="flex flex-col gap-4">
-          <p className="font-secondary text-[75px] tracking-tighter">
-            Neurodivergent
-          </p>
+          {mode === 'dislexia' || mode === 'bipolar' ? (
+            <ColoredText
+              text="Neurodivergent"
+              colors={['#63B3FF', '#ACFF2B', '#FCFF33', '#FF50BF']}
+              className="font-secondary text-[75px] tracking-tighter"
+            />
+          ) : (
+            <p className="font-secondary text-[75px] tracking-tighter">
+              Neurodivergent
+            </p>
+          )}
           <span className="text-base leading-6 ">
             $NEURO is a memecoin powered by curiosity — not financial promises.
             <br />
@@ -66,10 +79,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <NeuroTestPopup 
-        isOpen={isNeuroTestOpen} 
-        onClose={closeNeuroTest} 
-      />
+      <NeuroTestPopup isOpen={isNeuroTestOpen} onClose={closeNeuroTest} />
     </footer>
   );
 };

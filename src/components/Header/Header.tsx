@@ -1,12 +1,26 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
+import ColoredText from '../ColoredText';
 
-const Header = () => {
+interface HeaderProps {
+  mode?: string;
+}
+const Header = ({ mode }: HeaderProps) => {
   return (
     <header className="flex items-center h-14 justify-between bg-headerBg text-white mt-16 px-6 py-4 rounded-3xl w-full max-w-screen">
-      <Link href="/" className="text-white text-[22px] font-secondary font-bold tracking-tighter">
-        NEURODIVERGENT
+      <Link
+        href="/"
+        className="text-white text-[22px] font-secondary font-bold tracking-tighter"
+      >
+        {mode === 'dislexia' || mode === 'bipolar' ? (
+          <ColoredText
+            text="NEURODIVERGENT"
+            colors={['#63B3FF', '#ACFF2B', '#FCFF33', '#FF50BF']}
+          />
+        ) : (
+          'NEURODIVERGENT'
+        )}
       </Link>
 
       <nav className="flex items-center font-normal font-third gap-6 text-xs text-white">
