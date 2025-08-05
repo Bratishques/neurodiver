@@ -7,13 +7,15 @@ import FloatingLetter from '../FloatingLetter/FloatingLetter';
 import NeuroTestPopup from '../NeuroTestPopup/NeuroTestPopup';
 import { useNeuroTestContext } from '../NeuroTestPopup/NeuroTestContext';
 import BuyNeuroButton from '../BuyNeuroButton/BuyNeuroButton';
+import GradientButton from '../GradientButton/GradientButton';
 
 interface FirstScreenProps {
   mode?: string;
 }
 
 const FirstScreen = ({ mode }: FirstScreenProps) => {
-  const { isNeuroTestOpen, openNeuroTest, closeNeuroTest } = useNeuroTestContext();
+  const { isNeuroTestOpen, openNeuroTest, closeNeuroTest } =
+    useNeuroTestContext();
 
   const handleCopy = () => {
     navigator.clipboard.writeText('0xA1B2C3D4E5F67890ABCDEF1234567890ABCDEF12');
@@ -21,7 +23,6 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
 
   return (
     <div className="bg-firstScreenBg pb-50 flex flex-col h-full items-center relative">
-
       <FloatingLetter
         src="/icons/bipolar.svg"
         alt="bipolar"
@@ -60,7 +61,7 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
       <div className="md:px-40 px-8 relative z-10">
         <Header />
         <div className="flex w-full text-white md:mt-26 mt-8 justify-between md:gap-4">
-          <div className="md:w-1/2 flex flex-col sm:gap-12 md:gap-12 gap-6 mt-14 md:mt-14 mt-8">
+          <div className="md:w-1/2 flex flex-col sm:gap-12 md:gap-12 gap-6 md:mt-14 mt-8">
             <h3 className="text-4xl leading-7 sm:text-[80px] sm:leading-[80px] font-secondary -tracking-wider md:text-[80px] md:leading-[80px]">
               A new kind of OS.
               <br />
@@ -73,20 +74,18 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
                 around neurodivergent cognition — and the AI agents that support
                 it.
               </span>
-              <div className="bg-firstScreenAccent rounded-xl pl-6 p-4 md:pl-6 md:p-4 pl-3 p-2 flex items-center gap-6 md:gap-6 gap-3">
-                <div className="font-bold opacity-50 font-secondary text-2xl md:text-2xl text-sm">
+              <div className="bg-firstScreenAccent rounded-xl pl-6 p-4 md:pl-6 md:p-4 pl-3 p-2 flex items-center md:gap-6 gap-3">
+                <div className="font-bold opacity-50 font-secondary md:text-2xl text-sm">
                   CA
                 </div>
                 <div className="flex-1">
-                  <div
-                    className="bg-transparent text-white font-main md:text-xl text-xs w-full outline-none select-all break-all md:whitespace-nowrap"
-                  >
+                  <div className="bg-transparent text-white font-main md:text-xl text-xs w-full outline-none select-all break-all md:whitespace-nowrap">
                     0xA1B2C3D4E5F67890ABCDEF1234567890ABCDEF12
                   </div>
                 </div>
                 <button
                   onClick={handleCopy}
-                  className="bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all duration-200 rounded-[6px] p-3 md:p-3 p-2 cursor-pointer flex items-center justify-center"
+                  className="bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all duration-200 rounded-[6px] md:p-3 p-2 cursor-pointer flex items-center justify-center"
                   title="Copy to clipboard"
                 >
                   <Image
@@ -98,28 +97,38 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
                 </button>
               </div>
             </div>
-            <div className="flex gap-2 md:gap-6 sm:gap-2">
-              {mode === 'dislexia' || mode === 'bipolar' ? (
+            {mode === 'dislexia' || mode === 'bipolar' ? (
+              <div className="flex gap-2 md:gap-6 sm:gap-2 xl:flex-row flex-col">
                 <BuyNeuroButton
                   href=""
                   variant="adhd"
-                  className="max-w-41 md:max-w-41 max-w-20"
+                  className="md:max-w-41 max-w-20 xl:flex-shrink-0"
                 />
-              ) : (
+                <GradientButton
+                  onClick={openNeuroTest}
+                  type="button"
+                  className="xl:flex-1 font-third w-full"
+                  textClassName="text-black"
+                >
+                  Take the Neurotype Test
+                </GradientButton>
+              </div>
+            ) : (
+              <div className="flex gap-2 md:gap-6 sm:gap-2">
                 <Link
                   href=""
-                  className="bg-white sm:p-6 p-3 md:p-6 p-1 text-black rounded-xl text-xl md:text-xl text-xs max-w-41 md:max-w-41 max-w-20 leading-5 md:leading-5 leading-3"
+                  className="bg-white sm:p-6 p-3 md:p-6 p-1 text-black rounded-xl md:text-xl text-xs md:max-w-43 max-w-20  md:leading-5 leading-3"
                 >
                   Buy $NEURO
                 </Link>
-              )}
-              <button
-                onClick={openNeuroTest}
-                className="rounded-xl md:text-xl text-xs sm:p-6 p-3 md:p-6 p-1 cursor-pointer max-w-65 md:max-w-65 max-w-24 leading-5 md:leading-5 leading-3 bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all duration-200"
-              >
-                Take the Neurotype Test
-              </button>
-            </div>
+                <button
+                  onClick={openNeuroTest}
+                  className="rounded-xl md:text-xl text-xs sm:p-6 p-3 md:p-6 p-1 cursor-pointer md:max-w-65 max-w-24 md:leading-5 leading-3 bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all duration-200"
+                >
+                  Take the Neurotype Test
+                </button>
+              </div>
+            )}
           </div>
 
           <div className="relative w-1/2 z-20 hidden md:block">
@@ -132,9 +141,7 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
               </div>
 
               <div className="absolute inset-0 z-100">
-                <TrollingButton>
-                  Receive Airdrop
-                </TrollingButton>
+                <TrollingButton>Receive Airdrop</TrollingButton>
               </div>
 
               <div className="absolute bottom-0 top-0 left-0 w-[90%] h-full opacity-40 mix-blend-luminosity z-30">

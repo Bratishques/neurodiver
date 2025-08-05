@@ -5,6 +5,7 @@ import ColoredText from '../ColoredText';
 import NeuroTestPopup from '../NeuroTestPopup/NeuroTestPopup';
 import { useNeuroTestContext } from '../NeuroTestPopup/NeuroTestContext';
 import BuyNeuroButton from '../BuyNeuroButton/BuyNeuroButton';
+import GradientButton from '../GradientButton/GradientButton';
 
 interface FooterProps {
   mode?: string;
@@ -42,25 +43,38 @@ const Footer = ({ mode }: FooterProps) => {
         </div>
         <div className="flex flex-col items-start lg:items-end gap-4 sm:gap-6 mt-2 lg:mt-4 w-full lg:w-auto">
           {mode === 'dislexia' || mode === 'bipolar' ? (
-            <BuyNeuroButton
-              href=""
-              variant="adhd"
-              className="max-w-full lg:max-w-79"
-            />
+            <>
+              <BuyNeuroButton
+                href=""
+                variant="adhd"
+                className="max-w-full lg:max-w-79"
+              />
+              <GradientButton
+                onClick={openNeuroTest}
+                type="button"
+                className="xl:flex-1 font-third w-full"
+                textClassName="text-black"
+              >
+                Take the Neurotype Test
+              </GradientButton>
+            </>
           ) : (
-            <Link
-              href=""
-              className="bg-ctaButton p-4 sm:p-5 md:p-6 rounded-xl text-base sm:text-lg md:text-xl max-w-full lg:max-w-41 leading-5 text-center"
-            >
-              Buy $NEURO
-            </Link>
+            <>
+              <Link
+                href=""
+                className="bg-ctaButton p-4 sm:p-5 md:p-6 rounded-xl text-base sm:text-lg md:text-xl max-w-full lg:max-w-41 leading-5 text-center"
+              >
+                Buy $NEURO
+              </Link>
+              <button
+                onClick={openNeuroTest}
+                className="rounded-xl text-base sm:text-lg md:text-xl p-4 sm:p-5 md:p-6 cursor-pointer max-w-full lg:max-w-65 leading-5 bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all duration-200 text-center"
+              >
+                Take the Neurotype Test
+              </button>
+            </>
           )}
-          <button
-            onClick={openNeuroTest}
-            className="rounded-xl text-base sm:text-lg md:text-xl p-4 sm:p-5 md:p-6 cursor-pointer max-w-full lg:max-w-65 leading-5 bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all duration-200 text-center"
-          >
-            Take the Neurotype Test
-          </button>
+
           <div className="flex items-center gap-4 sm:gap-6 md:gap-8.5">
             <Link href="">
               <Image
