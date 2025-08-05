@@ -43,35 +43,35 @@ export function PhoneSection({ onShowThirdSection, mode }: PhoneSectionProps) {
     {
       src: '/images/phone-bunnies/green.png',
       alt: 'Floating phone slide 1',
-      className: 'top-1/4 left-30',
+      className: 'top-1/4 left-30 max-2xl:left-20 max-md:left-0 max-md:size-25 max-sm:w-15',
       size: 210,
       customClasses: 'z-20',
     },
     {
       src: '/images/phone-bunnies/pink2.png',
       alt: 'Floating phone slide 2',
-      className: 'top-[10%] right-1/5',
+      className: 'top-[10%] right-1/5 max-2xl:right-10 max-2xl:w-40 max-sm:right-0 max-sm:w-17',
       size: 230,
       customClasses: 'z-20',
     },
     {
       src: '/images/phone-bunnies/green2.png',
-      alt: 'Floating phone slide 2',
-      className: 'top-1/3 right-20',
+      alt: 'Floating phone slide 3',
+      className: 'top-1/3 right-20 max-2xl:right-15 max-2xl:w-45 max-md:w-25 max-md:right-4 max-sm:w-15',
       size: 230,
       customClasses: 'z-20',
     },
     {
       src: '/images/phone-bunnies/orange.png',
-      alt: 'Floating phone slide 3',
-      className: 'bottom-1/4 right-1/5',
+      alt: 'Floating phone slide 4',
+      className: 'bottom-1/4 right-1/5 max-2xl:right-20 max-sm:bottom-50 max-sm:right-0 max-sm:w-20',
       size: 220,
       customClasses: 'z-20',
     },
     {
       src: '/images/phone-bunnies/pink.png',
-      alt: 'Floating phone slide 3',
-      className: 'bottom-1/4 left-1/5',
+      alt: 'Floating phone slide 5',
+      className: 'bottom-1/4 left-1/5 max-2xl:left-10 max-md:left-0 max-md:size-30',
       size: 240,
       customClasses: 'z-20',
     },
@@ -122,7 +122,7 @@ export function PhoneSection({ onShowThirdSection, mode }: PhoneSectionProps) {
   return (
     <section
       ref={phoneRef}
-      className="relative pb-100 max-3xl:pb-140"
+      className="relative pb-100 max-3xl:pb-140 max-sm:pb-20"
       style={{ height: `${(screenData.length - 1) * 100}vh` }}
     >
       <div
@@ -186,15 +186,15 @@ export function PhoneSection({ onShowThirdSection, mode }: PhoneSectionProps) {
                 transition={{ duration: 0.2, ease: 'circInOut' }}
                 className="w-full h-full flex flex-col"
               >
-                <div className="flex-1 bg-phoneContent pl-9 pt-9 pr-7.5 pb-4 flex flex-col justify-start">
+                <div className="flex-1 bg-phoneContent pl-9 pt-9 pr-7.5 pb-4 flex flex-col justify-start max-sm:px-5">
                   <div className="">
-                    <h1 className="font-secondary text-[32px] font-bold">
+                    <h1 className="font-secondary text-[32px] font-bold max-sm:text-lg max-sm:leading-4.5">
                       NEUROTOK
                     </h1>
                   </div>
 
-                  <div className="mt-12">
-                    <h2 className="font-secondary text-5xl font-bold leading-12 tracking-tighter">
+                  <div className="mt-12 max-md:mt-9">
+                    <h2 className="font-secondary text-5xl max-sm:text-[32px] max-sm:leading-8 font-bold leading-12 tracking-tighter">
                       {mode === 'dislexia' || mode === 'bipolar' ? (
                         <ColoredText
                           text={screenData[currentSlideIndex].title}

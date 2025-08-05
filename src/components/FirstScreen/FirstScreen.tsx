@@ -57,11 +57,19 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
           />
         </div>
       </div>
+      <div className="absolute bottom-0 left-0 w-[30%] h-[30%] opacity-100 mix-blend-luminosity z-10 lg:hidden">
+        <Image
+          src="/images/first-screen-bunny.png"
+          fill
+          alt="Bunny"
+          className="object-contain"
+        />
+      </div>
 
-      <div className="lg:px-40 px-8 relative z-10">
+      <div className="max-1xl:px-6 2xl:px-40 lg:px-12 px-6 relative z-10">
         <Header />
-        <div className="flex w-full text-white md:mt-26 mt-8 justify-between md:gap-4">
-          <div className="lg:w-1/2 flex flex-col md:gap-12 gap-6 md:mt-14 mt-8">
+        <div className="flex max-1xl:flex-col flex-row w-full text-white md:mt-26 mt-8 justify-between md:gap-4">
+          <div className="1xl:w-1/2 flex flex-col md:gap-12 gap-6 md:mt-14 mt-8">
             <h3 className="text-4xl leading-7 md:text-[80px] md:leading-[80px] font-secondary -tracking-wider ">
               A new kind of OS.
               <br />
@@ -131,7 +139,7 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
             )}
           </div>
 
-          <div className="relative w-1/2 z-20 hidden lg:block">
+          <div className="relative w-1/2 max-1xl:w-full max-1xl:mt-10 z-20 hidden lg:block">
             <div className="rounded-[36px] py-12 px-38 h-full min-h-[45vh] border-2 border-dashed border-white/30 relative bg-firstScreenBg">
               <div className="text-center mb-4">
                 <p className="text-white/20 text-[32px] font-medium">
@@ -144,7 +152,7 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
                 <TrollingButton>Receive Airdrop</TrollingButton>
               </div>
 
-              <div className="absolute bottom-0 top-0 left-0 w-[90%] h-full opacity-40 mix-blend-luminosity z-30">
+              <div className="absolute bottom-0 top-0 max-1xl:w-[42%] left-0 w-[90%] h-full opacity-40 mix-blend-luminosity z-30">
                 <Image
                   src="/images/first-screen-bunny.png"
                   fill
