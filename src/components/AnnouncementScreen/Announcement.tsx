@@ -21,8 +21,12 @@ const Announcement = ({ mode }: AnnouncementProps) => {
   ];
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const refs = useRef<(HTMLDivElement | null)[]>([]);
   const [isMobile, setIsMobile] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [translateX, setTranslateX] = useState(0);
+  const refs = useRef<(HTMLDivElement | null)[]>([]);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const checkIsMobile = () => {
@@ -64,10 +68,55 @@ const Announcement = ({ mode }: AnnouncementProps) => {
     };
 
     container.addEventListener('scroll', handleScroll);
-    handleScroll(); 
+    handleScroll();
 
     return () => container.removeEventListener('scroll', handleScroll);
   }, [isMobile]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setIsDragging(true);
+    setStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging) return;
+
+    const currentX = e.touches[0].clientX;
+    const diff = currentX - startX;
+    setTranslateX(diff);
+  };
+
+  const handleTouchEnd = () => {
+    if (!isDragging) return;
+
+    setIsDragging(false);
+
+    if (Math.abs(translateX) > 50) {
+      if (translateX > 0) {
+        const newIndex = activeIndex === 0 ? 0 : (activeIndex || 0) - 1;
+        goToSlide(newIndex);
+      } else {
+        const newIndex = Math.min(
+          (activeIndex || 0) + 1,
+          tiktokPosts.length - 1
+        );
+        goToSlide(newIndex);
+      }
+    }
+
+    setTranslateX(0);
+  };
+
+  const goToSlide = (index: number) => {
+    const slideElement = refs.current[index];
+    if (slideElement) {
+      slideElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center',
+      });
+    }
+  };
 
   return (
     <div className="w-full bg-announcement relative pb-50 max-lg:pb-20">
@@ -156,26 +205,57 @@ const Announcement = ({ mode }: AnnouncementProps) => {
               )}
             </Marquee>
           ) : (
-            <div className="flex overflow-x-auto gap-4 px-4 snap-x snap-mandatory scroll-smooth max-md:h-full max-md:items-center">
-              {tiktokPosts.map((post, index) => (
-                <div
-                  key={index}
-                  ref={(el) => (refs.current[index] = el)}
-                  className={`flex-shrink-0 w-64 snap-center transition-transform duration-300 ${
-                    activeIndex === index
-                      ? 'scale-120 z-10'
-                      : 'scale-90 opacity-70'
-                  }`}
-                >
-                  <Image
-                    src={post}
-                    alt={`TikTok post ${index + 1}`}
-                    width={258}
-                    height={460}
-                    className="rounded-lg shadow-lg"
+            <div className="relative w-full h-full pb-10">
+              <div
+                ref={containerRef}
+                className="flex gap-4 px-4 snap-x snap-mandatory scroll-smooth max-md:h-full max-md:items-center overflow-hidden"
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+                style={{
+                  scrollbarWidth: 'none',
+                  msOverflowStyle: 'none',
+                  paddingLeft: 'calc(50vw - 128px)',
+                  paddingRight: 'calc(50vw - 128px)',
+                }}
+              >
+                {tiktokPosts.map((post, index) => (
+                  <div
+                    key={index}
+                    ref={(el) => {
+                      refs.current[index] = el;
+                    }}
+                    className={`flex-shrink-0 w-64 snap-center transition-transform duration-300 ${
+                      index === activeIndex
+                        ? 'scale-112 z-10'
+                        : 'scale-90 opacity-70'
+                    }`}
+                  >
+                    <Image
+                      src={post}
+                      alt={`TikTok post ${index + 1}`}
+                      width={258}
+                      height={460}
+                      className="rounded-lg shadow-lg"
+                    />
+                  </div>
+                ))}
+              </div>
+
+              <div className="absolute bottom-0 left-1/2 bg-black/30 p-2 rounded-xl transform -translate-x-1/2 flex space-x-2 z-30">
+                {tiktokPosts.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToSlide(index)}
+                    className={`w-3 h-3 rounded-full bg-black/40 transition-all duration-300 ${
+                      index === activeIndex
+                        ? 'bg-white scale-125'
+                        : 'bg-white/40 hover:bg-white/70'
+                    }`}
+                    aria-label={`Go to slide ${index + 1}`}
                   />
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           )}
         </div>
