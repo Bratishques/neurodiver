@@ -5,13 +5,22 @@ import { questions, testResults, type Question, type TestResult } from './data';
 interface NeuroTestPopupProps {
   isOpen: boolean;
   onClose: () => void;
+  mode?: string;
 }
 
-const NeuroTestPopup = ({ isOpen, onClose }: NeuroTestPopupProps) => {
+const NeuroTestPopup = ({ isOpen, onClose, mode }: NeuroTestPopupProps) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
   const [showResults, setShowResults] = useState(false);
   const [currentResult, setCurrentResult] = useState<TestResult | null>(null);
+
+  // Цвета для режима дислексии
+  const dislexiaColors = ['#FF41A4', '#78FF7F', '#FFB55A', '#000000', '#17ECFF'];
+  
+  // Получаем случайный цвет для текущего вопроса
+  const getRandomDislexiaColor = () => {
+    return dislexiaColors[Math.floor(Math.random() * dislexiaColors.length)];
+  };
 
   const handleAnswerSelect = (answer: string) => {
     const newAnswers = [...answers];
@@ -41,7 +50,8 @@ const NeuroTestPopup = ({ isOpen, onClose }: NeuroTestPopupProps) => {
   return (
     <div className="fixed inset-0 bg-popupOverlay z-50 flex items-center justify-center">
       <div
-        className={`w-full bg-popupBg rounded-3xl mt-30 mx-auto flex flex-col ${showResults ? 'max-w-150' : 'max-w-200 pb-10'}`}
+        className={`w-full ${mode === 'dislexia' ? 'font-third' : 'bg-popupBg'} rounded-3xl mt-30 mx-auto flex flex-col ${showResults ? 'max-w-150' : 'max-w-200 pb-10'}`}
+        style={mode === 'dislexia' ? { backgroundColor: getRandomDislexiaColor() } : {}}
       >
         <div
           className={`flex items-center justify-between ${showResults ? 'pt-6 pr-6 pl-6' : 'p-6'}`}

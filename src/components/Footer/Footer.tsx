@@ -4,6 +4,7 @@ import Link from 'next/link';
 import ColoredText from '../ColoredText';
 import NeuroTestPopup from '../NeuroTestPopup/NeuroTestPopup';
 import { useNeuroTestContext } from '../NeuroTestPopup/NeuroTestContext';
+import BuyNeuroButton from '../BuyNeuroButton/BuyNeuroButton';
 
 interface FooterProps {
   mode?: string;
@@ -81,7 +82,7 @@ const Footer = ({ mode }: FooterProps) => {
         </div>
       </div>
 
-      <NeuroTestPopup isOpen={isNeuroTestOpen} onClose={closeNeuroTest} />
+      <NeuroTestPopup isOpen={isNeuroTestOpen} onClose={closeNeuroTest} mode={mode} />
     </footer>
   );
 };

@@ -7,7 +7,11 @@ import FloatingLetter from '../FloatingLetter/FloatingLetter';
 import NeuroTestPopup from '../NeuroTestPopup/NeuroTestPopup';
 import { useNeuroTestContext } from '../NeuroTestPopup/NeuroTestContext';
 
-const FirstScreen = () => {
+interface FirstScreenProps {
+  mode?: string;
+}
+
+const FirstScreen = ({ mode }: FirstScreenProps) => {
   const { isNeuroTestOpen, openNeuroTest, closeNeuroTest } = useNeuroTestContext();
 
   const handleCopy = () => {
@@ -62,8 +66,8 @@ const FirstScreen = () => {
               For different kinds of minds.
             </h3>
 
-            <div className="flex flex-col gap-6 md:gap-6 gap-4">
-              <span className="text-2xl sm:leading-9 md:text-2xl md:leading-9 text-sm leading-5">
+            <div className="flex flex-col md:gap-6 gap-4">
+              <span className="sm:leading-9 md:text-2xl md:leading-9 text-sm leading-5">
                 We're building the world's first operating system designed
                 around neurodivergent cognition — and the AI agents that support
                 it.
@@ -74,7 +78,7 @@ const FirstScreen = () => {
                 </div>
                 <div className="flex-1">
                   <div
-                    className="bg-transparent text-white font-main text-xl md:text-xl text-xs w-full outline-none select-all break-all"
+                    className="bg-transparent text-white font-main  md:text-xl text-xs w-full outline-none select-all break-all"
                   >
                     0xA1B2C3D4E5F67890ABCDEF1234567890ABCDEF12
                   </div>
@@ -102,7 +106,7 @@ const FirstScreen = () => {
               </Link>
               <button
                 onClick={openNeuroTest}
-                className="rounded-xl text-xl md:text-xl text-xs sm:p-6 p-3 md:p-6 p-1 cursor-pointer max-w-65 md:max-w-65 max-w-24 leading-5 md:leading-5 leading-3 bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all duration-200"
+                className="rounded-xl md:text-xl text-xs sm:p-6 p-3 md:p-6 p-1 cursor-pointer max-w-65 md:max-w-65 max-w-24 leading-5 md:leading-5 leading-3 bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all duration-200"
               >
                 Take the Neurotype Test
               </button>
@@ -140,6 +144,7 @@ const FirstScreen = () => {
       <NeuroTestPopup
         isOpen={isNeuroTestOpen}
         onClose={closeNeuroTest}
+        mode={mode}
       />
     </div>
   );
