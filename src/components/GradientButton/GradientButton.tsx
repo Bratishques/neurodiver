@@ -23,7 +23,7 @@ const GradientButton = ({
 
   const ButtonContent = (
     <div
-      className={`relative z-10 ${baseClasses} ${textClassName}`}
+      className={`relative z-10 tracking-tighter ${baseClasses} ${textClassName}`}
       onClick={onClick}
     >
       {children}

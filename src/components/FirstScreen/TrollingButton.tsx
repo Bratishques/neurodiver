@@ -1,12 +1,14 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
+import GradientButton from '../GradientButton/GradientButton';
 
 interface TrollingButtonProps {
   className?: string;
   children: React.ReactNode;
+  mode?: string;
 }
 
-const TrollingButton = ({ className = '', children }: TrollingButtonProps) => {
+const TrollingButton = ({ className = '', children, mode }: TrollingButtonProps) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isInitialized, setIsInitialized] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -21,10 +23,23 @@ const TrollingButton = ({ className = '', children }: TrollingButtonProps) => {
         const containerRect = container.getBoundingClientRect();
         const buttonRect = button.getBoundingClientRect();
 
-        const initialY = (containerRect.height - buttonRect.height) / 2;
-        const initialX = containerRect.width - buttonRect.width - 40;
+        const buttonWidth = buttonRect.width;
+        const buttonHeight = buttonRect.height;
+        const containerWidth = containerRect.width;
+        const containerHeight = containerRect.height;
 
-        setPosition({ x: initialX, y: initialY });
+        // Проверяем, помещается ли кнопка в контейнер
+        if (buttonWidth > containerWidth || buttonHeight > containerHeight) {
+          // Если кнопка больше контейнера, центрируем её
+          const centerX = (containerWidth - buttonWidth) / 2;
+          const centerY = (containerHeight - buttonHeight) / 2;
+          setPosition({ x: centerX, y: centerY });
+        } else {
+          // Иначе используем стандартную позицию
+          const initialY = (containerHeight - buttonHeight) / 2;
+          const initialX = containerWidth - buttonWidth - 40;
+          setPosition({ x: initialX, y: initialY });
+        }
         setIsInitialized(true);
       }
     };
@@ -44,8 +59,17 @@ const TrollingButton = ({ className = '', children }: TrollingButtonProps) => {
     const buttonWidth = button.width;
     const buttonHeight = button.height;
 
-    const maxX = containerWidth - buttonWidth;
-    const maxY = containerHeight - buttonHeight;
+    // Ограничиваем максимальные значения, чтобы кнопка не выезжала за границы
+    const maxX = Math.max(0, containerWidth - buttonWidth);
+    const maxY = Math.max(0, containerHeight - buttonHeight);
+
+    // Если контейнер меньше кнопки, центрируем кнопку
+    if (maxX <= 0 || maxY <= 0) {
+      const centerX = (containerWidth - buttonWidth) / 2;
+      const centerY = (containerHeight - buttonHeight) / 2;
+      setPosition({ x: centerX, y: centerY });
+      return;
+    }
 
     const newX = Math.random() * maxX;
     const newY = Math.random() * maxY;
@@ -78,12 +102,23 @@ const TrollingButton = ({ className = '', children }: TrollingButtonProps) => {
         onMouseEnter={handleMouseEnter}
         onClick={handleClick}
       >
-        <button
-          className={`bg-white text-black text-xl py-6 px-4 rounded-xl ${className}`}
-          disabled={true}
-        >
-          {children}
-        </button>
+        {mode === 'dislexia' || mode === 'bipolar' ? (
+          <GradientButton
+            type="button"
+            className={`max-w-full ${className}`}
+            textClassName="text-black"
+            onClick={handleClick}
+          >
+            {children}
+          </GradientButton>
+        ) : (
+          <button
+            className={`bg-white text-black text-xl py-6 px-4 rounded-xl max-w-full overflow-hidden ${className}`}
+            disabled={true}
+          >
+            {children}
+          </button>
+        )}
       </div>
     </div>
   );

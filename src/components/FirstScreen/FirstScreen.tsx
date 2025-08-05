@@ -8,6 +8,7 @@ import NeuroTestPopup from '../NeuroTestPopup/NeuroTestPopup';
 import { useNeuroTestContext } from '../NeuroTestPopup/NeuroTestContext';
 import BuyNeuroButton from '../BuyNeuroButton/BuyNeuroButton';
 import GradientButton from '../GradientButton/GradientButton';
+import ColoredText from '../ColoredText/ColoredText';
 
 interface FirstScreenProps {
   mode?: string;
@@ -70,14 +71,34 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
         <Header />
         <div className="flex max-1xl:flex-col flex-row w-full text-white md:mt-26 mt-8 justify-between md:gap-4">
           <div className="1xl:w-1/2 flex flex-col md:gap-12 gap-6 md:mt-14 mt-8">
-            <h3 className="text-4xl leading-7 md:text-[80px] md:leading-[80px] font-secondary -tracking-wider ">
-              A new kind of OS.
-              <br />
-              For different kinds of minds.
+            <h3
+              className={`text-4xl leading-7 lg:text-[80px] lg:leading-[80px] -tracking-wider ${mode === 'dislexia' || mode === 'bipolar' ? 'font-third' : 'font-secondary'}`}
+            >
+              {mode === 'dislexia' || mode === 'bipolar' ? (
+                <>
+                  <ColoredText
+                    className="lg:text-[54px] max-sm:text-[40px] text-4xl leading-16 tracking-[-2.7px] font-bold"
+                    text="A new kind of OS."
+                  />
+                  <br className="max-sm:hidden"/>
+                  <ColoredText
+                    className="lg:text-[54px] text-4xl max-sm:text-[40px] lg:leading-16 tracking-[-2.7px] font-bold"
+                    text="For different kinds of minds."
+                  />
+                </>
+              ) : (
+                <>
+                  A new kind of OS.
+                  <br />
+                  For different kinds of minds.
+                </>
+              )}
             </h3>
 
             <div className="flex flex-col md:gap-6 gap-4">
-              <span className="md:leading-9 md:text-2xl text-sm leading-5 max-md:max-w-[76%] max-sm:max-w-full">
+              <span
+                className={`md:leading-9 md:text-2xl text-sm leading-5 max-md:max-w-[76%] max-sm:max-w-full ${mode === 'dislexia' || mode === 'bipolar' ? 'font-third' : ''}`}
+              >
                 We're building the world's first operating system designed
                 around neurodivergent cognition — and the AI agents that support
                 it.
@@ -106,16 +127,16 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
               </div>
             </div>
             {mode === 'dislexia' || mode === 'bipolar' ? (
-              <div className="flex gap-2 md:gap-6 sm:gap-2 xl:flex-row flex-col">
+               <div className="flex gap-2 md:gap-6 sm:gap-2">
                 <BuyNeuroButton
                   href=""
                   variant="adhd"
-                  className="md:max-w-41 max-w-20 xl:flex-shrink-0"
+                  className="md:max-w-41 max-w-fit xl:flex-shrink-0"
                 />
                 <GradientButton
                   onClick={openNeuroTest}
                   type="button"
-                  className="xl:flex-1 font-third w-full"
+                  className="xl:flex-1 font-third w-full max-1xl:w-[62%]"
                   textClassName="text-black"
                 >
                   Take the Neurotype Test
@@ -149,7 +170,7 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
               </div>
 
               <div className="absolute inset-0 z-100">
-                <TrollingButton>Receive Airdrop</TrollingButton>
+                <TrollingButton mode={mode}>Receive Airdrop</TrollingButton>
               </div>
 
               <div className="absolute bottom-0 top-0 max-1xl:w-[42%] left-0 w-[90%] h-full opacity-40 mix-blend-luminosity z-30">
