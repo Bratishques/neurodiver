@@ -4,6 +4,7 @@ import Link from 'next/link';
 import MetricsTable from './MetricsTable';
 import FloatingLetter from '../FloatingLetter/FloatingLetter';
 import ColoredText from '../ColoredText';
+import BuyNeuroButton from '../BuyNeuroButton/BuyNeuroButton';
 
 interface MetricsScreenProps {
   mode?: string;
@@ -69,12 +70,16 @@ const MetricsScreen = ({ mode }: MetricsScreenProps) => {
           >
             Coming Soon
           </p>
-          <Link
-            href=""
-            className="bg-white mt-4 p-4 sm:p-5 md:p-6 px-6 sm:px-8 md:px-10 text-black font-main rounded-xl text-base sm:text-lg md:text-xl leading-5"
-          >
-            Buy $NEURO
-          </Link>
+          {mode === 'dislexia' || mode === 'bipolar' ? (
+            <BuyNeuroButton href="" variant="adhd" className="mt-4" />
+          ) : (
+            <Link
+              href=""
+              className="bg-white mt-4 p-4 sm:p-5 md:p-6 px-6 sm:px-8 md:px-10 text-black font-main rounded-xl text-base sm:text-lg md:text-xl leading-5"
+            >
+              Buy $NEURO
+            </Link>
+          )}
         </div>
       </div>
 

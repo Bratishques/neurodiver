@@ -45,36 +45,36 @@ export function PhoneSection({ onShowThirdSection, mode }: PhoneSectionProps) {
       alt: 'Floating phone slide 1',
       className: 'top-1/4 left-30',
       size: 210,
-      customClasses: 'z-20'
+      customClasses: 'z-20',
     },
     {
       src: '/images/phone-bunnies/pink2.png',
       alt: 'Floating phone slide 2',
       className: 'top-[10%] right-1/5',
       size: 230,
-      customClasses: 'z-20'
+      customClasses: 'z-20',
     },
     {
       src: '/images/phone-bunnies/green2.png',
       alt: 'Floating phone slide 2',
       className: 'top-1/3 right-20',
       size: 230,
-      customClasses: 'z-20'
+      customClasses: 'z-20',
     },
     {
       src: '/images/phone-bunnies/orange.png',
       alt: 'Floating phone slide 3',
       className: 'bottom-1/4 right-1/5',
       size: 220,
-      customClasses: 'z-20'
+      customClasses: 'z-20',
     },
     {
       src: '/images/phone-bunnies/pink.png',
       alt: 'Floating phone slide 3',
       className: 'bottom-1/4 left-1/5',
       size: 240,
-      customClasses: 'z-20'
-    }
+      customClasses: 'z-20',
+    },
   ];
 
   useEffect(() => {
@@ -200,7 +200,13 @@ export function PhoneSection({ onShowThirdSection, mode }: PhoneSectionProps) {
                           text={screenData[currentSlideIndex].title}
                           className="font-third text-4xl font-extrabold leading-12"
                           letterClassName="inline"
-                          colors={['#329BFE', '#A30606', '#74B116', '#FF50BF', '#FFD11A']}
+                          colors={[
+                            '#329BFE',
+                            '#A30606',
+                            '#74B116',
+                            '#FF50BF',
+                            '#FFD11A',
+                          ]}
                           preserveSpaces={false}
                         />
                       ) : (
@@ -210,7 +216,9 @@ export function PhoneSection({ onShowThirdSection, mode }: PhoneSectionProps) {
                   </div>
 
                   <div className="mt-6">
-                    <p className={`font-main text-base leading-6 ${mode === 'dislexia' || mode === 'bipolar' ? 'font-third' : ''}`}>
+                    <p
+                      className={`font-main text-base leading-6 ${mode === 'dislexia' || mode === 'bipolar' ? 'font-third' : ''}`}
+                    >
                       {screenData[currentSlideIndex].description}
                     </p>
                   </div>

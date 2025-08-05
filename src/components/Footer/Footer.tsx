@@ -16,7 +16,7 @@ const Footer = ({ mode }: FooterProps) => {
   return (
     <footer className="bg-footerBg p-2.5 text-white flex flex-row my-auto items-center justify-between px-4 sm:px-8 md:px-17 pt-8 sm:pt-10 md:pt-13 pb-12 sm:pb-16 md:pb-20">
       <div className="flex flex-col lg:flex-row justify-between w-full items-start gap-6 lg:gap-0">
-      <div className="flex flex-col gap-3 sm:gap-4">
+        <div className="flex flex-col gap-3 sm:gap-4">
           {mode === 'dislexia' || mode === 'bipolar' ? (
             <ColoredText
               text="Neurodivergent"
@@ -41,12 +41,20 @@ const Footer = ({ mode }: FooterProps) => {
           </p>
         </div>
         <div className="flex flex-col items-start lg:items-end gap-4 sm:gap-6 mt-2 lg:mt-4 w-full lg:w-auto">
-          <Link
-            href=""
-            className="bg-ctaButton p-4 sm:p-5 md:p-6 rounded-xl text-base sm:text-lg md:text-xl max-w-full lg:max-w-41 leading-5 text-center"
-          >
-            Buy $NEURO
-          </Link>
+          {mode === 'dislexia' || mode === 'bipolar' ? (
+            <BuyNeuroButton
+              href=""
+              variant="adhd"
+              className="max-w-full lg:max-w-79"
+            />
+          ) : (
+            <Link
+              href=""
+              className="bg-ctaButton p-4 sm:p-5 md:p-6 rounded-xl text-base sm:text-lg md:text-xl max-w-full lg:max-w-41 leading-5 text-center"
+            >
+              Buy $NEURO
+            </Link>
+          )}
           <button
             onClick={openNeuroTest}
             className="rounded-xl text-base sm:text-lg md:text-xl p-4 sm:p-5 md:p-6 cursor-pointer max-w-full lg:max-w-65 leading-5 bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all duration-200 text-center"
@@ -55,10 +63,22 @@ const Footer = ({ mode }: FooterProps) => {
           </button>
           <div className="flex items-center gap-4 sm:gap-6 md:gap-8.5">
             <Link href="">
-              <Image src="/icons/x.svg" width="32" height="32" className="sm:w-10 sm:h-10 md:w-12 md:h-12" alt="x-icon" />
+              <Image
+                src="/icons/x.svg"
+                width="32"
+                height="32"
+                className="sm:w-10 sm:h-10 md:w-12 md:h-12"
+                alt="x-icon"
+              />
             </Link>
             <Link href="">
-              <Image src="/icons/tg.svg" width="32" height="32" className="sm:w-10 sm:h-10 md:w-12 md:h-12" alt="tg-icon" />
+              <Image
+                src="/icons/tg.svg"
+                width="32"
+                height="32"
+                className="sm:w-10 sm:h-10 md:w-12 md:h-12"
+                alt="tg-icon"
+              />
             </Link>
             <Link href="">
               <Image
@@ -82,7 +102,11 @@ const Footer = ({ mode }: FooterProps) => {
         </div>
       </div>
 
-      <NeuroTestPopup isOpen={isNeuroTestOpen} onClose={closeNeuroTest} mode={mode} />
+      <NeuroTestPopup
+        isOpen={isNeuroTestOpen}
+        onClose={closeNeuroTest}
+        mode={mode}
+      />
     </footer>
   );
 };

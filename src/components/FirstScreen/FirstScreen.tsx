@@ -6,6 +6,7 @@ import TrollingButton from './TrollingButton';
 import FloatingLetter from '../FloatingLetter/FloatingLetter';
 import NeuroTestPopup from '../NeuroTestPopup/NeuroTestPopup';
 import { useNeuroTestContext } from '../NeuroTestPopup/NeuroTestContext';
+import BuyNeuroButton from '../BuyNeuroButton/BuyNeuroButton';
 
 interface FirstScreenProps {
   mode?: string;
@@ -98,12 +99,20 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
               </div>
             </div>
             <div className="flex gap-2 md:gap-6 sm:gap-2">
-              <Link
-                href=""
-                className="bg-white sm:p-6 p-3 md:p-6 p-1 text-black rounded-xl text-xl md:text-xl text-xs max-w-41 md:max-w-41 max-w-20 leading-5 md:leading-5 leading-3"
-              >
-                Buy $NEURO
-              </Link>
+              {mode === 'dislexia' || mode === 'bipolar' ? (
+                <BuyNeuroButton
+                  href=""
+                  variant="adhd"
+                  className="max-w-41 md:max-w-41 max-w-20"
+                />
+              ) : (
+                <Link
+                  href=""
+                  className="bg-white sm:p-6 p-3 md:p-6 p-1 text-black rounded-xl text-xl md:text-xl text-xs max-w-41 md:max-w-41 max-w-20 leading-5 md:leading-5 leading-3"
+                >
+                  Buy $NEURO
+                </Link>
+              )}
               <button
                 onClick={openNeuroTest}
                 className="rounded-xl md:text-xl text-xs sm:p-6 p-3 md:p-6 p-1 cursor-pointer max-w-65 md:max-w-65 max-w-24 leading-5 md:leading-5 leading-3 bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all duration-200"
