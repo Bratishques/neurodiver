@@ -54,7 +54,7 @@ const MetricsTable = ({ mode }: MetricsTableProps) => {
 
   return (
     <div className="mt-6 sm:mt-8 md:mt-10 mb-12 sm:mb-14 md:mb-18">
-      <div className="sm:hidden">
+      <div className="md:hidden">
         <table className={`border-collapse border-2 border-metricsBorder text-white font-secondary w-full ${fontClass}`}>
           <tbody>
             {metricsData.map((metric, index) => (
@@ -82,7 +82,7 @@ const MetricsTable = ({ mode }: MetricsTableProps) => {
         </table>
       </div>
 
-      <div className="hidden sm:block">
+      <div className="hidden md:block">
         <table className={`border-collapse border-2 sm:border-3 md:border-4 border-metricsBorder text-white font-secondary w-full ${fontClass}`}>
           <tbody>
             {Array.from({ length: 4 }, (_, rowIndex) => (
@@ -109,7 +109,7 @@ const MetricsTable = ({ mode }: MetricsTableProps) => {
                         alt={metric.title}
                         width={32}
                         height={32}
-                        className="sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16"
+                        className="sm:w-10 sm:h-10 md:w-12 md:h-12 1xl:w-16 1xl:h-16"
                       />
                     </td>
                   ))}

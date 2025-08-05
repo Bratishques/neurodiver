@@ -20,29 +20,29 @@ const Announcement = ({ mode }: AnnouncementProps) => {
   ];
 
   return (
-    <div className="w-full bg-announcement relative pb-50">
+    <div className="w-full bg-announcement relative pb-50 max-lg:pb-20">
       <FloatingLetter 
         src="/icons/letters/b.svg" 
         alt="Letter B" 
-        className="sm:block hidden left-15 top-32 z-10 opacity-100" 
+        className="sm:block hidden left-15 top-32 z-10 max-lg:top-10" 
         size={43}
       />
       <FloatingLetter 
         src="/icons/letters/a.svg" 
         alt="Letter a" 
-        className="sm:block hidden right-1/2 bottom-10 z-10" 
+        className="sm:block hidden right-1/2 bottom-10 z-10 max-lg:w-10 max-lg:bottom-0 max-lg:right-10" 
         size={78}
       />
       <FloatingLetter 
         src="/icons/letters/x-letter.svg" 
         alt="Letter x" 
-        className="sm:block hidden right-1/4 top-10 z-10" 
+        className="sm:block hidden right-1/4 top-10 z-10 max-lg:top-0 max-lg:w-15" 
         size={78}
       />
       <FloatingLetter 
         src="/icons/letters/p.svg" 
         alt="Letter P" 
-        className="sm:block hidden left-20 bottom-20 z-10 opacity-95" 
+        className="sm:block hidden left-20 bottom-20 z-10 opacity-95 max-lg:bottom-4 max-lg:w-10" 
         size={78}
       />
 
@@ -51,19 +51,19 @@ const Announcement = ({ mode }: AnnouncementProps) => {
          <h3 className="font-secondary sm:text-80 text-5xl tracking-tighter mx-auto w-fit text-center mb-12">
             <ColoredText
               text="Real reactions."
-              className="font-third text-[64px] font-bold tracking-tighter"
+              className="font-third text-[64px] max-md:text-5xl max-md:leading-14.5 max-sm:text-[32px] max-sm:leading-9.5 font-bold max-md:tracking-[-2.7px] tracking-tighter"
               colors={['#329BFE', '#A30606', '#74B116', '#FF50BF', '#FFD11A']}
             />
             <br />
             <ColoredText
               text="Community memes."
-              className="font-third text-[64px] font-bold tracking-tighter"
+              className="font-third text-[64px] max-md:text-5xl max-md:leading-14.5 max-sm:text-[32px] max-sm:leading-9.5 font-bold max-md:tracking-[-2.7px] tracking-tighter"
               colors={['#329BFE', '#A30606', '#74B116', '#FF50BF', '#FFD11A']}
             />
             <br />
             <ColoredText
               text="Neurotype journeys."
-              className="font-third text-[64px] font-bold tracking-tighter"
+              className="font-third text-[64px] max-md:text-5xl max-md:leading-14.5 max-sm:text-[32px] max-sm:leading-9.5 font-bold max-md:tracking-[-2.7px] tracking-tighter"
               colors={['#329BFE', '#A30606', '#74B116', '#FF50BF', '#FFD11A']}
             />
           </h3>

@@ -38,7 +38,7 @@ const MetricsScreen = ({ mode }: MetricsScreenProps) => {
         size={78}
       />
 
-      <div className="flex flex-col w-full sm:w-[80%] md:w-[70%] lg:w-[64%] text-center mx-auto text-white font-secondary px-4 sm:px-6 md:px-0">
+      <div className="flex flex-col w-full sm:w-[90%] lg:w-[90%] 2xl:w-[64%] text-center mx-auto text-white font-secondary px-4 sm:px-6 md:px-0">
         <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-80 tracking-tighter leading-tight">
           {mode === 'dislexia' || mode === 'bipolar' ? (
             <ColoredText

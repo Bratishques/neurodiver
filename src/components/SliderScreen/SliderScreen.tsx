@@ -38,8 +38,14 @@ const SliderScreen = () => {
     setActiveSlide(swiper.realIndex);
   };
 
+  const handleDotClick = (index: number) => {
+    if (mainSwiper) {
+      mainSwiper.slideTo(index);
+    }
+  };
+
   return (
-    <div className="w-full h-screen relative max-xl:h-[80vh]">
+    <div className="w-full h-screen relative max-xl:h-[80vh] max-lg:h-[70vh] max-md:h-[45vh]">
       <Swiper
         modules={[Thumbs]}
         onSwiper={setMainSwiper}
@@ -64,9 +70,11 @@ const SliderScreen = () => {
         ))}
       </Swiper>
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/70 to-transparent z-10" />
+      
+      {/* Стрелочки только для lg и больше */}
       <button
         onClick={handlePrev}
-        className="absolute top-1/2 rounded-xl cursor-pointer left-15 transform -translate-y-1/2 max-w-16 max-h-16 z-10 p-4 bg-white hover:bg-gray-100 transition-colors flex items-center justify-center"
+        className="hidden lg:block absolute top-1/2 rounded-xl cursor-pointer left-15 transform -translate-y-1/2 max-w-16 max-h-16 z-10 p-4 bg-white hover:bg-gray-100 transition-colors flex items-center justify-center"
       >
         <Image
           src="/icons/slider-arrow.svg"
@@ -78,7 +86,7 @@ const SliderScreen = () => {
 
       <button
         onClick={handleNext}
-        className="absolute top-1/2 rounded-xl cursor-pointer right-15 transform -translate-y-1/2 max-w-16 max-h-16 z-10 p-4 bg-white hover:bg-gray-100 transition-colors flex items-center justify-center"
+        className="hidden lg:block absolute top-1/2 rounded-xl cursor-pointer right-15 transform -translate-y-1/2 max-w-16 max-h-16 z-10 p-4 bg-white hover:bg-gray-100 transition-colors flex items-center justify-center"
       >
         <Image
           src="/icons/slider-arrow.svg"
@@ -89,7 +97,8 @@ const SliderScreen = () => {
         />
       </button>
 
-      <div className="absolute bottom-11 left-0 right-0 flex items-center justify-center z-10">
+      {/* Миниатюры только для lg и больше */}
+      <div className="hidden lg:block absolute bottom-11 left-0 right-0 flex items-center justify-center z-10">
         <div className="w-full max-w-[70%] px-4 max-3xl:max-w-[95%] max-2xl:max-w-full">
           <Swiper
             modules={[Thumbs]}
@@ -116,6 +125,24 @@ const SliderScreen = () => {
               </SwiperSlide>
             ))}
           </Swiper>
+        </div>
+      </div>
+
+      {/* Точки для мобильных устройств (меньше lg) */}
+      <div className="lg:hidden absolute bottom-8 left-0 right-0 flex items-center justify-center z-10">
+        <div className="bg-black/40 rounded-full px-4 py-2 flex space-x-2">
+          {slides.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => handleDotClick(idx)}
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                activeSlide === idx 
+                  ? 'bg-white' 
+                  : 'bg-black/30'
+              }`}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
         </div>
       </div>
     </div>
