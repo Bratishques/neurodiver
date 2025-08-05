@@ -127,8 +127,8 @@ body {
 .bg-phoneContent {
   background-color: #FFF0CF;
 }
-.text-80 {
-  font-size: 80px;
-  line-height: 80px;
+@layer utilities {
+  .text-80 {
+    @apply text-[80px] leading-[80px];
+  }
 }
-

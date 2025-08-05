@@ -61,7 +61,7 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
         <Header mode={mode} />
         <div className="flex w-full text-white md:mt-26 mt-8 justify-between">
           <div className="md:w-[53%] flex flex-col sm:gap-12 md:gap-12 gap-6 md:mt-14 mt-8">
-            <h3 className="sm:text-80 sm:leading-20 font-secondary -tracking-wider md:text-80 md:leading-20 text-4xl leading-7">
+            <h3 className="2xl:text-[80px] 3xl:max-w-[90%] 2xl:leading-20 font-secondary -tracking-wider text-4xl leading-7">
               {mode === 'dislexia' || mode === 'bipolar' ? (
                 <>
                   <ColoredText
@@ -78,13 +78,12 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
               ) : (
                 <>
                   A new kind of OS.
-                  <br />
                   For different kinds of minds.
                 </>
               )}
             </h3>
 
-            <div className="flex flex-col md:gap-6 gap-4">
+            <div className="flex flex-col 3xl:gap-6 gap-4">
               <span
                 className={`sm:leading-9 md:text-2xl md:leading-9 text-sm leading-5 ${mode === 'dislexia' || mode === 'bipolar' ? 'font-third tracking-tighter' : ''}`}
               >
@@ -93,7 +92,7 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
                 it.
               </span>
 
-              <div className="bg-firstScreenAccent rounded-xl md:pl-6 md:p-4 pl-3 p-2 flex items-center md:gap-6 gap-3 md:max-w-[86%]">
+              <div className="bg-firstScreenAccent rounded-xl md:pl-6 md:p-4 pl-3 p-2 flex items-center 3xl:gap-6 gap-3 md:max-w-[98%]">
                 <div className="font-bold opacity-50 font-secondary md:text-2xl text-sm">
                   CA
                 </div>
@@ -123,13 +122,13 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
             <div className="flex gap-2 md:gap-6 sm:gap-2">
               <Link
                 href=""
-                className="bg-white sm:p-6 p-3 md:p-6 p-1 text-black rounded-xl md:text-xl text-xs md:max-w-41 max-w-20 md:leading-5 leading-3"
+                className="bg-white sm:p-6 md:p-6 p-1 text-black rounded-xl md:text-xl text-xs md:max-w-41 max-w-20 md:leading-5 leading-3"
               >
                 Buy $NEURO
               </Link>
               <button
                 onClick={openNeuroTest}
-                className="rounded-xl  md:text-xl text-xs sm:p-6 p-3 md:p-6 p-1 cursor-pointer md:max-w-65 max-w-24 md:leading-5 leading-3 bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all duration-200"
+                className="rounded-xl md:text-xl text-xs sm:p-6 md:p-6 p-1 cursor-pointer md:max-w-65 max-w-24 md:leading-5 leading-3 bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all duration-200"
               >
                 Take the Neurotype Test
               </button>
@@ -137,7 +136,7 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
           </div>
 
           <div className="relative w-1/2 z-20">
-            <div className="rounded-[36px] py-12 px-30 h-full min-h-[45vh] border-2 border-dashed border-white/30 relative bg-firstScreenBg">
+            <div className="rounded-[36px] py-12 px-21 h-full min-h-[45vh] border-2 border-dashed border-white/30 relative bg-firstScreenBg">
               <div className="text-center mb-4">
                 <p className="text-white/20 text-[32px] font-medium">
                   It's much more advantageous
@@ -145,7 +144,7 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
                 </p>
               </div>
 
-              <div className="relative w-1/2 z-20 hidden md:block">
+              <div className="relative z-20 hidden md:block opacity-100">
                 <TrollingButton>Receive Airdrop</TrollingButton>
               </div>
 

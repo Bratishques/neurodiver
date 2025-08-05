@@ -133,7 +133,6 @@ export function PhoneSection({ onShowThirdSection, mode }: PhoneSectionProps) {
         }}
       />
 
-      {/* Floating images */}
       {floatingImages.map((image, index) => (
         <FloatingLetter
           key={index}
