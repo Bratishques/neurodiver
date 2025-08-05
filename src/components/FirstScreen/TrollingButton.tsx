@@ -106,7 +106,7 @@ const TrollingButton = ({ className = '', children, mode }: TrollingButtonProps)
           <GradientButton
             type="button"
             className={`max-w-full ${className}`}
-            textClassName="text-black"
+            textClassName="text-white"
             onClick={handleClick}
           >
             {children}

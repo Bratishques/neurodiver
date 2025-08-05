@@ -96,8 +96,8 @@ const SliderScreen = () => {
         />
       </button>
 
-      <div className="hidden lg:block absolute bottom-11 left-0 right-0 flex items-center justify-center z-10">
-        <div className="w-full max-w-[70%] px-4 max-3xl:max-w-[95%] max-2xl:max-w-full">
+      <div className="hidden lg:flex absolute bottom-11 left-0 right-0 items-center justify-center z-10">
+        <div className="w-full max-w-[70%] px-4 max-3xl:max-w-[95%] mx-auto max-2xl:max-w-full">
           <Swiper
             modules={[Thumbs]}
             onSwiper={setThumbsSwiper}
