@@ -64,6 +64,9 @@
   --font-main: 'Inter', sans-serif;
   --font-secondary: 'FreeCheese', sans-serif;
   --font-third: 'OpenDyslexic', sans-serif;
+  
+  /* Custom breakpoints */
+  --breakpoint-3xl: 1700px;
 
   /* buttons */
   --color-ctaButton: var(--ctaButton);

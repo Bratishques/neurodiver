@@ -122,7 +122,7 @@ export function PhoneSection({ onShowThirdSection, mode }: PhoneSectionProps) {
   return (
     <section
       ref={phoneRef}
-      className="relative pb-100"
+      className="relative pb-100 max-3xl:pb-140"
       style={{ height: `${(screenData.length - 1) * 100}vh` }}
     >
       <div
