@@ -10,7 +10,8 @@ interface NeuroTestPopupProps {
 }
 
 const NeuroTestPopup = ({ isOpen, onClose, mode }: NeuroTestPopupProps) => {
-  const { currentQuestion, setCurrentQuestion, showResults, setShowResults } = useNeuroTestContext();
+  const { currentQuestion, setCurrentQuestion, showResults, setShowResults } =
+    useNeuroTestContext();
   const [answers, setAnswers] = useState<string[]>([]);
   const [currentResult, setCurrentResult] = useState<TestResult | null>(null);
   const [currentColorIndex, setCurrentColorIndex] = useState(0);
@@ -59,9 +60,9 @@ const NeuroTestPopup = ({ isOpen, onClose, mode }: NeuroTestPopupProps) => {
   return (
     <div className="fixed inset-0 bg-popupOverlay z-50 flex items-center justify-center">
       <div
-        className={`w-full ${mode === 'dislexia' || 'bipolar' && !showResults ? 'font-third' : 'bg-popupBg'} rounded-3xl mt-30 mx-auto flex flex-col ${showResults ? 'max-w-150' : 'max-w-200 pb-10'}`}
+        className={`w-full ${(mode === 'dislexia' || mode === 'bipolar') && !showResults ? 'font-third' : 'bg-popupBg'} rounded-3xl mt-30 mx-auto flex flex-col ${showResults ? 'max-w-150' : 'max-w-200 pb-10'}`}
         style={
-          mode === 'dislexia' || 'bipolar' && !showResults
+          (mode === 'dislexia' || mode === 'bipolar') && !showResults
             ? { backgroundColor: getCurrentDislexiaColor() }
             : {}
         }
@@ -72,7 +73,7 @@ const NeuroTestPopup = ({ isOpen, onClose, mode }: NeuroTestPopupProps) => {
           {!showResults ? (
             <div className="flex items-center gap-3.5">
               <div
-                className={`${mode === 'dislexia' || 'bipolar' ? (currentQuestion === 0 || currentQuestion === 4 ? 'text-white' : 'text-black') : 'text-popupText'} font-main text-vase leading-6`}
+                className={`${mode === 'dislexia' || mode === 'bipolar' ? (currentQuestion === 0 || currentQuestion === 4 ? 'text-white' : 'text-black') : 'text-popupText'} font-main text-vase leading-6`}
               >
                 {currentQuestion + 1}/10
               </div>
@@ -83,12 +84,12 @@ const NeuroTestPopup = ({ isOpen, onClose, mode }: NeuroTestPopupProps) => {
                     key={i}
                     className={`w-2 h-2 rounded-full ${
                       i <= currentQuestion
-                        ? mode === 'dislexia' || 'bipolar'
+                        ? mode === 'dislexia' || mode === 'bipolar'
                           ? currentQuestion === 0 || currentQuestion === 4
                             ? 'bg-white'
                             : 'bg-black'
                           : 'bg-popupText'
-                        : mode === 'dislexia' || 'bipolar'
+                        : mode === 'dislexia' || mode === 'bipolar'
                           ? currentQuestion === 0 || currentQuestion === 4
                             ? 'bg-gray-300'
                             : 'bg-gray-400'
@@ -104,7 +105,7 @@ const NeuroTestPopup = ({ isOpen, onClose, mode }: NeuroTestPopupProps) => {
 
           <button
             onClick={handleClose}
-            className={`${mode === 'dislexia' || 'bipolar' ? (currentQuestion === 0 || currentQuestion === 4 ? 'text-white hover:text-gray-200' : 'text-black hover:text-gray-600') : 'text-popupText hover:text-popupCloseHover'} cursor-pointer text-sm font-bold transition-colors`}
+            className={`${mode === 'dislexia' || mode === 'bipolar' ? (currentQuestion === 0 || currentQuestion === 4 ? 'text-white hover:text-gray-200' : 'text-black hover:text-gray-600') : 'text-popupText hover:text-popupCloseHover'} cursor-pointer text-sm font-bold transition-colors`}
           >
             ✕
           </button>
@@ -116,7 +117,7 @@ const NeuroTestPopup = ({ isOpen, onClose, mode }: NeuroTestPopupProps) => {
           {!showResults ? (
             <>
               <h2
-                className={`${mode === 'dislexia' || 'bipolar' ? (currentQuestion === 0 || currentQuestion === 4 ? 'text-white' : 'text-black') : 'text-white'} font-secondary text-5xl tracking-tighter mb-10 mx-auto`}
+                className={`${mode === 'dislexia' || mode === 'bipolar' ? (currentQuestion === 0 || currentQuestion === 4 ? 'text-white' : 'text-black') : 'text-white'} font-secondary text-5xl tracking-tighter mb-10 mx-auto`}
               >
                 {questions[currentQuestion].text}
               </h2>
@@ -126,19 +127,19 @@ const NeuroTestPopup = ({ isOpen, onClose, mode }: NeuroTestPopupProps) => {
                   <button
                     key={index}
                     onClick={() => handleAnswerSelect(option.letter)}
-                    className={`w-full ${mode === 'dislexia' || 'bipolar' ? 'bg-white hover:bg-gray-100 active:bg-gray-200' : 'bg-popupButtonBg hover:bg-popupButtonHover active:bg-popupButtonActive'} cursor-pointer transition-colors rounded-2xl p-4 flex items-center gap-6 text-left`}
+                    className={`w-full ${mode === 'dislexia' || mode === 'bipolar' ? 'bg-white hover:bg-gray-100 active:bg-gray-200' : 'bg-popupButtonBg hover:bg-popupButtonHover active:bg-popupButtonActive'} cursor-pointer transition-colors rounded-2xl p-4 flex items-center gap-6 text-left`}
                   >
                     <div
-                      className={`w-6 h-6 ${mode === 'dislexia' || 'bipolar' ? 'bg-gray-300' : 'bg-gray-700'} rounded-full flex items-center justify-center flex-shrink-0`}
+                      className={`w-6 h-6 ${mode === 'dislexia' || mode === 'bipolar' ? 'bg-gray-300' : 'bg-gray-700'} rounded-full flex items-center justify-center flex-shrink-0`}
                     >
                       <span
-                        className={`${mode === 'dislexia' || 'bipolar' ? 'text-black' : 'text-white'} font-bold text-xs`}
+                        className={`${mode === 'dislexia' || mode === 'bipolar' ? 'text-black' : 'text-white'} font-bold text-xs`}
                       >
                         {option.letter}
                       </span>
                     </div>
                     <span
-                      className={`${mode === 'dislexia' || 'bipolar' ? 'text-black' : 'text-white'} font-main text-xl leading-relaxed`}
+                      className={`${mode === 'dislexia' || mode === 'bipolar' ? 'text-black' : 'text-white'} font-main text-xl leading-relaxed`}
                     >
                       {option.text}
                     </span>
