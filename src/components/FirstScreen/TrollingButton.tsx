@@ -28,14 +28,11 @@ const TrollingButton = ({ className = '', children, mode }: TrollingButtonProps)
         const containerWidth = containerRect.width;
         const containerHeight = containerRect.height;
 
-        // Проверяем, помещается ли кнопка в контейнер
         if (buttonWidth > containerWidth || buttonHeight > containerHeight) {
-          // Если кнопка больше контейнера, центрируем её
           const centerX = (containerWidth - buttonWidth) / 2;
           const centerY = (containerHeight - buttonHeight) / 2;
           setPosition({ x: centerX, y: centerY });
         } else {
-          // Иначе используем стандартную позицию
           const initialY = (containerHeight - buttonHeight) / 2;
           const initialX = containerWidth - buttonWidth - 40;
           setPosition({ x: initialX, y: initialY });
@@ -59,11 +56,9 @@ const TrollingButton = ({ className = '', children, mode }: TrollingButtonProps)
     const buttonWidth = button.width;
     const buttonHeight = button.height;
 
-    // Ограничиваем максимальные значения, чтобы кнопка не выезжала за границы
     const maxX = Math.max(0, containerWidth - buttonWidth);
     const maxY = Math.max(0, containerHeight - buttonHeight);
 
-    // Если контейнер меньше кнопки, центрируем кнопку
     if (maxX <= 0 || maxY <= 0) {
       const centerX = (containerWidth - buttonWidth) / 2;
       const centerY = (containerHeight - buttonHeight) / 2;
@@ -105,8 +100,9 @@ const TrollingButton = ({ className = '', children, mode }: TrollingButtonProps)
         {mode === 'dislexia' || mode === 'bipolar' ? (
           <GradientButton
             type="button"
-            className={`max-w-full ${className}`}
-            textClassName="text-white"
+            className={`max-w-full px-2 max-h-16 ${className}`}
+            textClassName="text-white font-third"
+            gradientSrc="/icons/gradient2.svg"
             onClick={handleClick}
           >
             {children}

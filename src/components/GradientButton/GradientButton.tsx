@@ -8,6 +8,7 @@ interface GradientButtonProps {
   onClick?: () => void;
   type?: 'button' | 'link';
   textClassName?: string;
+  gradientSrc?: string;
 }
 
 const GradientButton = ({
@@ -17,9 +18,10 @@ const GradientButton = ({
   onClick,
   type = 'link',
   textClassName,
+  gradientSrc = '/icons/Gradient.svg',
 }: GradientButtonProps) => {
   const baseClasses =
-    'rounded-2xl md:text-xl text-xs sm:p-6 p-3 md:p-6 p-1 cursor-pointer leading-5 md:leading-5 leading-3 relative overflow-hidden font-medium text-center';
+    'rounded-2xl md:text-xl text-xs sm:p-6 p-3 md:p-6 p-1 cursor-pointer leading-5 md:leading-5 leading-3 relative overflow-hidden font-medium text-center h-full';
 
   const ButtonContent = (
     <div
@@ -36,15 +38,15 @@ const GradientButton = ({
         gradient={false}
         speed={40}
         direction="left"
-        className="w-full h-full"
+        className="w-full h-full overflow-hidden"
       >
         <img
-          src="/icons/Gradient.svg"
+          src={gradientSrc}
           alt="gradient"
           className="h-full w-auto"
         />
         <img
-          src="/icons/Gradient.svg"
+          src={gradientSrc}
           alt="gradient duplicate"
           className="h-full w-auto"
         />
@@ -53,7 +55,7 @@ const GradientButton = ({
   );
 
   const content = (
-    <div className={`relative ${className}`}>
+    <div className={`relative overflow-hidden ${className}`}>
       <GradientBackground />
       {ButtonContent}
     </div>
