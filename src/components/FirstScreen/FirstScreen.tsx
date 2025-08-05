@@ -47,13 +47,21 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
           alt="Background pattern"
           className="object-cover"
         />
+        <div className="absolute bottom-0 left-0 sm:w-[40%] h-1/4 opacity-40 mix-blend-luminosity z-30 block sm:hidden">
+          <Image
+            src="/images/bunny-adaptive.png"
+            fill
+            alt="Bunny"
+            className="object-contain"
+          />
+        </div>
       </div>
 
-      <div className="px-53 relative z-10">
+      <div className="md:px-53 px-8 relative z-10">
         <Header mode={mode} />
-        <div className="flex w-full text-white mt-26 justify-between">
-          <div className="w-[53%] flex flex-col gap-12 mt-14 mr-4">
-            <h3 className="text-80 leading-20 font-secondary -tracking-wider">
+        <div className="flex w-full text-white md:mt-26 mt-8 justify-between">
+          <div className="md:w-[53%] flex flex-col sm:gap-12 md:gap-12 gap-6 md:mt-14 mt-8">
+            <h3 className="sm:text-80 sm:leading-20 font-secondary -tracking-wider md:text-80 md:leading-20 text-4xl leading-7">
               {mode === 'dislexia' || mode === 'bipolar' ? (
                 <>
                   <ColoredText
@@ -76,30 +84,27 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
               )}
             </h3>
 
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col md:gap-6 gap-4">
               <span
-                className={`text-2xl leading-9 ${mode === 'dislexia' || mode === 'bipolar' ? 'font-third tracking-tighter' : ''}`}
+                className={`sm:leading-9 md:text-2xl md:leading-9 text-sm leading-5 ${mode === 'dislexia' || mode === 'bipolar' ? 'font-third tracking-tighter' : ''}`}
               >
                 We're building the world's first operating system designed
                 around neurodivergent cognition — and the AI agents that support
                 it.
               </span>
 
-              <div className="bg-firstScreenAccent rounded-xl pl-6 p-4 flex items-center gap-6 max-w-[86%]">
-                <div className="font-bold opacity-50 font-secondary text-2xl">
+              <div className="bg-firstScreenAccent rounded-xl md:pl-6 md:p-4 pl-3 p-2 flex items-center md:gap-6 gap-3 md:max-w-[86%]">
+                <div className="font-bold opacity-50 font-secondary md:text-2xl text-sm">
                   CA
                 </div>
                 <div className="flex-1">
-                  <input
-                    type="text"
-                    value="0xA1B2C3D4E5F67890ABCDEF1234567890ABCDEF12"
-                    readOnly
-                    className="bg-transparent text-white font-main text-xl w-full outline-none"
-                  />
+                  <div className="bg-transparent text-white font-main md:text-xl text-xs w-full outline-none select-all break-all">
+                    0xA1B2C3D4E5F67890ABCDEF1234567890ABCDEF12
+                  </div>
                 </div>
                 <button
                   onClick={handleCopy}
-                  className={`bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all ${mode === 'dislexia' || mode === 'bipolar' ? 'border-2 border-[#5DFAFF]' : ''} duration-200 rounded-[6px] p-3 cursor-pointer flex items-center justify-center`}
+                  className={`bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all ${mode === 'dislexia' || mode === 'bipolar' ? 'border-2 border-[#5DFAFF]' : ''} duration-200 rounded-[6px] md:p-3 p-2  cursor-pointer flex items-center justify-center`}
                   title="Copy to clipboard"
                 >
                   <Image
@@ -115,16 +120,16 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
                 </button>
               </div>
             </div>
-            <div className="flex gap-6">
+            <div className="flex gap-2 md:gap-6 sm:gap-2">
               <Link
                 href=""
-                className="bg-white p-6 text-black rounded-xl text-xl max-w-41 leading-5"
+                className="bg-white sm:p-6 p-3 md:p-6 p-1 text-black rounded-xl md:text-xl text-xs md:max-w-41 max-w-20 md:leading-5 leading-3"
               >
                 Buy $NEURO
               </Link>
               <button
                 onClick={openNeuroTest}
-                className="rounded-xl text-xl p-6 cursor-pointer max-w-65 leading-5 bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all duration-200"
+                className="rounded-xl  md:text-xl text-xs sm:p-6 p-3 md:p-6 p-1 cursor-pointer md:max-w-65 max-w-24 md:leading-5 leading-3 bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all duration-200"
               >
                 Take the Neurotype Test
               </button>
@@ -140,7 +145,7 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
                 </p>
               </div>
 
-              <div className="absolute inset-0 z-100">
+              <div className="relative w-1/2 z-20 hidden md:block">
                 <TrollingButton>Receive Airdrop</TrollingButton>
               </div>
 

@@ -21,34 +21,34 @@ const Announcement = ({ mode }: AnnouncementProps) => {
 
   return (
     <div className="w-full bg-announcement relative pb-50">
-      <FloatingLetter
-        src="/icons/letters/b.svg"
-        alt="Letter B"
-        className="left-15 top-32 z-10 opacity-100"
+      <FloatingLetter 
+        src="/icons/letters/b.svg" 
+        alt="Letter B" 
+        className="sm:block hidden left-15 top-32 z-10 opacity-100" 
         size={43}
       />
-      <FloatingLetter
-        src="/icons/letters/a.svg"
-        alt="Letter a"
-        className="right-1/2 bottom-10 z-10"
+      <FloatingLetter 
+        src="/icons/letters/a.svg" 
+        alt="Letter a" 
+        className="sm:block hidden right-1/2 bottom-10 z-10" 
         size={78}
       />
-      <FloatingLetter
-        src="/icons/letters/x-letter.svg"
-        alt="Letter x"
-        className="right-1/4 top-10 z-10"
+      <FloatingLetter 
+        src="/icons/letters/x-letter.svg" 
+        alt="Letter x" 
+        className="sm:block hidden right-1/4 top-10 z-10" 
         size={78}
       />
-      <FloatingLetter
-        src="/icons/letters/p.svg"
-        alt="Letter P"
-        className="left-20 bottom-20 z-10 opacity-95"
+      <FloatingLetter 
+        src="/icons/letters/p.svg" 
+        alt="Letter P" 
+        className="sm:block hidden left-20 bottom-20 z-10 opacity-95" 
         size={78}
       />
 
       <div className="pt-17.5">
         {mode === 'dislexia' || mode === 'bipolar' ? (
-          <h3 className="font-secondary text-80 tracking-tighter mx-auto w-fit text-center mb-12">
+         <h3 className="font-secondary sm:text-80 text-5xl tracking-tighter mx-auto w-fit text-center mb-12">
             <ColoredText
               text="Real reactions."
               className="font-third text-[64px] font-bold tracking-tighter"
@@ -68,7 +68,7 @@ const Announcement = ({ mode }: AnnouncementProps) => {
             />
           </h3>
         ) : (
-          <h3 className="font-secondary text-80 tracking-tighter mx-auto w-fit text-center mb-12">
+          <h3 className="font-secondary sm:text-80 text-5xl tracking-tighter mx-auto w-fit text-center mb-12">
             Real reactions.
             <br /> Community memes. <br />
             Neurotype journeys.

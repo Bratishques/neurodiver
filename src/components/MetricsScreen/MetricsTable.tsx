@@ -51,8 +51,8 @@ const MetricsTable = ({ mode }: MetricsTableProps) => {
   ];
 
   return (
-    <div className="mt-10 mb-18">
-      <table className={`border-collapse border-4 border-metricsBorder text-white font-secondary w-full ${mode === 'dislexia' || mode === 'bipolar' ? 'font-third' : ''}`}>
+    <div className="mt-6 sm:mt-8 md:mt-10 mb-12 sm:mb-14 md:mb-18">
+      <table className={`border-collapse border-2 sm:border-3 md:border-4 border-metricsBorder text-white font-secondary w-full ${mode === 'dislexia' || mode === 'bipolar' ? 'font-third' : ''}`}>
         <tbody>
           {Array.from({ length: 4 }, (_, rowIndex) => (
             <tr key={rowIndex} className="flex">
@@ -61,14 +61,14 @@ const MetricsTable = ({ mode }: MetricsTableProps) => {
                 .map((metric, colIndex) => (
                   <td
                     key={colIndex}
-                    className="border-4 border-metricsBorder bg-metricsBg p-9 text-xl w-1/2 flex justify-between items-center max-h-38"
+                    className="border-2 sm:border-3 md:border-4 border-metricsBorder bg-metricsBg p-4 sm:p-6 md:p-9 text-sm sm:text-lg md:text-xl w-1/2 flex justify-between items-center max-h-24 sm:max-h-28 md:max-h-38"
                   >
                     <div className="flex flex-col text-left">
-                      <div className={`text-2xl font-main mb-5 text-white/50 ${mode === 'dislexia' || mode === 'bipolar' ? 'font-third' : ''}`}>
+                      <div className={`text-sm sm:text-lg md:text-2xl font-main mb-2 sm:mb-3 md:mb-5 text-white/50 ${mode === 'dislexia' || mode === 'bipolar' ? 'font-third' : ''}`}>
                         {metric.title}
                       </div>
                       <div
-                        className={`text-5xl ${metric.isGreen ? 'text-[#75FF7C]' : ''}`}
+                        className={`text-xl sm:text-3xl md:text-4xl lg:text-5xl ${metric.isGreen ? 'text-[#75FF7C]' : ''}`}
                       >
                         {metric.value}
                       </div>
@@ -76,8 +76,9 @@ const MetricsTable = ({ mode }: MetricsTableProps) => {
                     <Image
                       src={metric.image}
                       alt={metric.title}
-                      width={64}
-                      height={64}
+                      width={32}
+                      height={32}
+                      className="sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16"
                     />
                   </td>
                 ))}
