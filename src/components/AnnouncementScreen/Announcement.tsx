@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 import Marquee from 'react-fast-marquee';
 import FloatingLetter from '../FloatingLetter/FloatingLetter';
 import ColoredText from '../ColoredText';
@@ -19,36 +20,85 @@ const Announcement = ({ mode }: AnnouncementProps) => {
     '/images/tiktok-posts/post6.png',
   ];
 
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const refs = useRef<(HTMLDivElement | null)[]>([]);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile) return;
+
+    const container = refs.current[0]?.parentElement;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const containerRect = container.getBoundingClientRect();
+      const containerCenterX = containerRect.left + containerRect.width / 2;
+
+      let closestIndex = 0;
+      let closestDistance = Infinity;
+
+      refs.current.forEach((ref, index) => {
+        if (ref) {
+          const rect = ref.getBoundingClientRect();
+          const elementCenterX = rect.left + rect.width / 2;
+          const distance = Math.abs(containerCenterX - elementCenterX);
+
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestIndex = index;
+          }
+        }
+      });
+
+      setActiveIndex(closestIndex);
+    };
+
+    container.addEventListener('scroll', handleScroll);
+    handleScroll(); 
+
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, [isMobile]);
+
   return (
     <div className="w-full bg-announcement relative pb-50 max-lg:pb-20">
-      <FloatingLetter 
-        src="/icons/letters/b.svg" 
-        alt="Letter B" 
-        className="sm:block hidden left-15 top-32 z-10 max-lg:top-10" 
+      <FloatingLetter
+        src="/icons/letters/b.svg"
+        alt="Letter B"
+        className="sm:block hidden left-15 top-32 z-10 max-lg:top-10"
         size={43}
       />
-      <FloatingLetter 
-        src="/icons/letters/a.svg" 
-        alt="Letter a" 
-        className="sm:block hidden right-1/2 bottom-10 z-10 max-lg:w-10 max-lg:bottom-0 max-lg:right-10" 
+      <FloatingLetter
+        src="/icons/letters/a.svg"
+        alt="Letter a"
+        className="sm:block hidden right-1/2 bottom-10 z-10 max-lg:w-10 max-lg:bottom-0 max-lg:right-10"
         size={78}
       />
-      <FloatingLetter 
-        src="/icons/letters/x-letter.svg" 
-        alt="Letter x" 
-        className="sm:block hidden right-1/4 top-10 z-10 max-lg:top-0 max-lg:w-15" 
+      <FloatingLetter
+        src="/icons/letters/x-letter.svg"
+        alt="Letter x"
+        className="sm:block hidden right-1/4 top-10 z-10 max-lg:top-0 max-lg:w-15"
         size={78}
       />
-      <FloatingLetter 
-        src="/icons/letters/p.svg" 
-        alt="Letter P" 
-        className="sm:block hidden left-20 bottom-20 z-10 opacity-95 max-lg:bottom-4 max-lg:w-10" 
+      <FloatingLetter
+        src="/icons/letters/p.svg"
+        alt="Letter P"
+        className="sm:block hidden left-20 bottom-20 z-10 opacity-95 max-lg:bottom-4 max-lg:w-10"
         size={78}
       />
 
       <div className="pt-17.5">
         {mode === 'dislexia' || mode === 'bipolar' ? (
-         <h3 className="font-secondary sm:text-80 text-5xl tracking-tighter mx-auto w-fit text-center mb-12">
+          <h3 className="font-secondary sm:text-80 text-5xl tracking-tighter mx-auto w-fit text-center mb-12">
             <ColoredText
               text="Real reactions."
               className="font-third text-[64px] max-md:text-5xl max-md:leading-14.5 max-sm:text-[32px] max-sm:leading-9.5 font-bold max-md:tracking-[-2.7px] tracking-tighter"
@@ -75,35 +125,59 @@ const Announcement = ({ mode }: AnnouncementProps) => {
           </h3>
         )}
 
-        <div className="relative h-126.5 overflow-hidden">
-          <Marquee
-            speed={40}
-            gradient={false}
-            pauseOnHover={true}
-            className="py-4 mt-4"
-            delay={0}
-            loop={0}
-          >
-            {[...tiktokPosts, ...tiktokPosts, ...tiktokPosts].map(
-              (post, index) => (
-                <Link
+        <div className="relative h-126.5 max-md:h-140 overflow-hidden max-md:flex max-md:justify-center max-md:items-center">
+          {!isMobile ? (
+            <Marquee
+              speed={40}
+              gradient={false}
+              pauseOnHover={true}
+              className="py-4 mt-4"
+              delay={0}
+              loop={0}
+            >
+              {[...tiktokPosts, ...tiktokPosts, ...tiktokPosts].map(
+                (post, index) => (
+                  <Link
+                    key={index}
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block mx-5 transform transition-transform duration-300 hover:scale-105"
+                  >
+                    <Image
+                      src={post}
+                      alt={`TikTok post ${(index % tiktokPosts.length) + 1}`}
+                      width={258}
+                      height={460}
+                      className="rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                    />
+                  </Link>
+                )
+              )}
+            </Marquee>
+          ) : (
+            <div className="flex overflow-x-auto gap-4 px-4 snap-x snap-mandatory scroll-smooth max-md:h-full max-md:items-center">
+              {tiktokPosts.map((post, index) => (
+                <div
                   key={index}
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block mx-5 transform transition-transform duration-300 hover:scale-105"
+                  ref={(el) => (refs.current[index] = el)}
+                  className={`flex-shrink-0 w-64 snap-center transition-transform duration-300 ${
+                    activeIndex === index
+                      ? 'scale-120 z-10'
+                      : 'scale-90 opacity-70'
+                  }`}
                 >
                   <Image
                     src={post}
-                    alt={`TikTok post ${(index % tiktokPosts.length) + 1}`}
+                    alt={`TikTok post ${index + 1}`}
                     width={258}
                     height={460}
-                    className="rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                    className="rounded-lg shadow-lg"
                   />
-                </Link>
-              )
-            )}
-          </Marquee>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
