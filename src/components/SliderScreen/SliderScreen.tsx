@@ -71,7 +71,6 @@ const SliderScreen = () => {
       </Swiper>
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/70 to-transparent z-10" />
       
-      {/* Стрелочки только для lg и больше */}
       <button
         onClick={handlePrev}
         className="hidden lg:block absolute top-1/2 rounded-xl cursor-pointer left-15 transform -translate-y-1/2 max-w-16 max-h-16 z-10 p-4 bg-white hover:bg-gray-100 transition-colors flex items-center justify-center"
@@ -97,7 +96,6 @@ const SliderScreen = () => {
         />
       </button>
 
-      {/* Миниатюры только для lg и больше */}
       <div className="hidden lg:block absolute bottom-11 left-0 right-0 flex items-center justify-center z-10">
         <div className="w-full max-w-[70%] px-4 max-3xl:max-w-[95%] max-2xl:max-w-full">
           <Swiper
@@ -128,7 +126,6 @@ const SliderScreen = () => {
         </div>
       </div>
 
-      {/* Точки для мобильных устройств (меньше lg) */}
       <div className="lg:hidden absolute bottom-8 left-0 right-0 flex items-center justify-center z-10">
         <div className="bg-black/40 rounded-full px-4 py-2 flex space-x-2">
           {slides.map((_, idx) => (
