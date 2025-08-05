@@ -13,13 +13,19 @@ const NeuroTestPopup = ({ isOpen, onClose, mode }: NeuroTestPopupProps) => {
   const [answers, setAnswers] = useState<string[]>([]);
   const [showResults, setShowResults] = useState(false);
   const [currentResult, setCurrentResult] = useState<TestResult | null>(null);
+  const [currentColorIndex, setCurrentColorIndex] = useState(0);
+  const [hasUsedBlack, setHasUsedBlack] = useState(false);
 
-  // Цвета для режима дислексии
-  const dislexiaColors = ['#FF41A4', '#78FF7F', '#FFB55A', '#000000', '#17ECFF'];
-  
-  // Получаем случайный цвет для текущего вопроса
-  const getRandomDislexiaColor = () => {
-    return dislexiaColors[Math.floor(Math.random() * dislexiaColors.length)];
+  const dislexiaColors = ['#FF41A4', '#78FF7F', '#FFB55A', '#17ECFF'];
+  const blackColor = '#000000';
+
+  const getCurrentDislexiaColor = () => {
+    if (currentQuestion === 4) {
+      return blackColor;
+    }
+
+    const color = dislexiaColors[currentColorIndex % dislexiaColors.length];
+    return color;
   };
 
   const handleAnswerSelect = (answer: string) => {
@@ -29,6 +35,7 @@ const NeuroTestPopup = ({ isOpen, onClose, mode }: NeuroTestPopupProps) => {
 
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
+      setCurrentColorIndex(currentColorIndex + 1);
     } else {
       const randomResult =
         testResults[Math.floor(Math.random() * testResults.length)];
@@ -42,6 +49,8 @@ const NeuroTestPopup = ({ isOpen, onClose, mode }: NeuroTestPopupProps) => {
     setAnswers([]);
     setShowResults(false);
     setCurrentResult(null);
+    setCurrentColorIndex(0);
+    setHasUsedBlack(false);
     onClose();
   };
 
@@ -50,15 +59,21 @@ const NeuroTestPopup = ({ isOpen, onClose, mode }: NeuroTestPopupProps) => {
   return (
     <div className="fixed inset-0 bg-popupOverlay z-50 flex items-center justify-center">
       <div
-        className={`w-full ${mode === 'dislexia' ? 'font-third' : 'bg-popupBg'} rounded-3xl mt-30 mx-auto flex flex-col ${showResults ? 'max-w-150' : 'max-w-200 pb-10'}`}
-        style={mode === 'dislexia' ? { backgroundColor: getRandomDislexiaColor() } : {}}
+        className={`w-full ${mode === 'dislexia' && !showResults ? 'font-third' : 'bg-popupBg'} rounded-3xl mt-30 mx-auto flex flex-col ${showResults ? 'max-w-150' : 'max-w-200 pb-10'}`}
+        style={
+          mode === 'dislexia' && !showResults
+            ? { backgroundColor: getCurrentDislexiaColor() }
+            : {}
+        }
       >
         <div
           className={`flex items-center justify-between ${showResults ? 'pt-6 pr-6 pl-6' : 'p-6'}`}
         >
           {!showResults ? (
             <div className="flex items-center gap-3.5">
-              <div className="text-popupText font-main text-vase leading-6">
+              <div
+                className={`${mode === 'dislexia' ? (currentQuestion === 0 || currentQuestion === 4 ? 'text-white' : 'text-black') : 'text-popupText'} font-main text-vase leading-6`}
+              >
                 {currentQuestion + 1}/10
               </div>
 
@@ -68,8 +83,16 @@ const NeuroTestPopup = ({ isOpen, onClose, mode }: NeuroTestPopupProps) => {
                     key={i}
                     className={`w-2 h-2 rounded-full ${
                       i <= currentQuestion
-                        ? 'bg-popupText'
-                        : 'bg-popupTextSecondary'
+                        ? mode === 'dislexia'
+                          ? currentQuestion === 0 || currentQuestion === 4
+                            ? 'bg-white'
+                            : 'bg-black'
+                          : 'bg-popupText'
+                        : mode === 'dislexia'
+                          ? currentQuestion === 0 || currentQuestion === 4
+                            ? 'bg-gray-300'
+                            : 'bg-gray-400'
+                          : 'bg-popupTextSecondary'
                     }`}
                   />
                 ))}
@@ -81,7 +104,7 @@ const NeuroTestPopup = ({ isOpen, onClose, mode }: NeuroTestPopupProps) => {
 
           <button
             onClick={handleClose}
-            className="text-popupText cursor-pointer text-sm font-bold hover:text-popupCloseHover transition-colors"
+            className={`${mode === 'dislexia' ? (currentQuestion === 0 || currentQuestion === 4 ? 'text-white hover:text-gray-200' : 'text-black hover:text-gray-600') : 'text-popupText hover:text-popupCloseHover'} cursor-pointer text-sm font-bold transition-colors`}
           >
             ✕
           </button>
@@ -92,7 +115,9 @@ const NeuroTestPopup = ({ isOpen, onClose, mode }: NeuroTestPopupProps) => {
         >
           {!showResults ? (
             <>
-              <h2 className="text-white font-secondary text-5xl tracking-tighter mb-10 mx-auto">
+              <h2
+                className={`${mode === 'dislexia' ? (currentQuestion === 0 || currentQuestion === 4 ? 'text-white' : 'text-black') : 'text-white'} font-secondary text-5xl tracking-tighter mb-10 mx-auto`}
+              >
                 {questions[currentQuestion].text}
               </h2>
 
@@ -101,14 +126,20 @@ const NeuroTestPopup = ({ isOpen, onClose, mode }: NeuroTestPopupProps) => {
                   <button
                     key={index}
                     onClick={() => handleAnswerSelect(option.letter)}
-                    className="w-full bg-popupButtonBg hover:bg-popupButtonHover cursor-pointer active:bg-popupButtonActive transition-colors rounded-2xl p-4 flex items-center gap-6 text-left"
+                    className={`w-full ${mode === 'dislexia' ? 'bg-white hover:bg-gray-100 active:bg-gray-200' : 'bg-popupButtonBg hover:bg-popupButtonHover active:bg-popupButtonActive'} cursor-pointer transition-colors rounded-2xl p-4 flex items-center gap-6 text-left`}
                   >
-                    <div className="w-6 h-6 bg-gray-700 rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-white font-bold text-xs">
+                    <div
+                      className={`w-6 h-6 ${mode === 'dislexia' ? 'bg-gray-300' : 'bg-gray-700'} rounded-full flex items-center justify-center flex-shrink-0`}
+                    >
+                      <span
+                        className={`${mode === 'dislexia' ? 'text-black' : 'text-white'} font-bold text-xs`}
+                      >
                         {option.letter}
                       </span>
                     </div>
-                    <span className="text-white font-main text-xl leading-relaxed">
+                    <span
+                      className={`${mode === 'dislexia' ? 'text-black' : 'text-white'} font-main text-xl leading-relaxed`}
+                    >
                       {option.text}
                     </span>
                   </button>
