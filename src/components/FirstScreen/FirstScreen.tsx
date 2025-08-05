@@ -56,11 +56,11 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
         </div>
       </div>
 
-      <div className="md:px-53 px-8 relative z-10">
+      <div className="md:px-16 px-8 relative z-10">
         <Header />
-        <div className="flex w-full text-white md:mt-26 mt-8 justify-between">
+        <div className="flex w-full text-white md:mt-26 mt-8 justify-between md:gap-4">
           <div className="md:w-1/2 flex flex-col sm:gap-12 md:gap-12 gap-6 mt-14 md:mt-14 mt-8">
-            <h3 className="sm:text-80 sm:leading-20 font-secondary -tracking-wider md:text-80 md:leading-20 text-4xl leading-7">
+            <h3 className="text-4xl leading-7 sm:text-[80px] sm:leading-[80px] font-secondary -tracking-wider md:text-[80px] md:leading-[80px]">
               A new kind of OS.
               <br />
               For different kinds of minds.
@@ -72,13 +72,13 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
                 around neurodivergent cognition — and the AI agents that support
                 it.
               </span>
-              <div className="bg-firstScreenAccent rounded-xl pl-6 p-4 md:pl-6 md:p-4 pl-3 p-2 flex items-center gap-6 md:gap-6 gap-3 md:max-w-[86%]">
+              <div className="bg-firstScreenAccent rounded-xl pl-6 p-4 md:pl-6 md:p-4 pl-3 p-2 flex items-center gap-6 md:gap-6 gap-3">
                 <div className="font-bold opacity-50 font-secondary text-2xl md:text-2xl text-sm">
                   CA
                 </div>
                 <div className="flex-1">
                   <div
-                    className="bg-transparent text-white font-main  md:text-xl text-xs w-full outline-none select-all break-all"
+                    className="bg-transparent text-white font-main md:text-xl text-xs w-full outline-none select-all break-all md:whitespace-nowrap"
                   >
                     0xA1B2C3D4E5F67890ABCDEF1234567890ABCDEF12
                   </div>
