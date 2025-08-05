@@ -6,13 +6,17 @@ interface BuyNeuroButtonProps {
   href?: string;
   variant?: 'default' | 'adhd';
   children?: React.ReactNode;
+  customStyles?: string;
+  disableColoredText?: boolean;
 }
 
 const BuyNeuroButton = ({ 
   className = '', 
   href = '', 
   variant = 'default',
-  children = 'Buy $NEURO'
+  children = 'Buy $NEURO',
+  customStyles = '',
+  disableColoredText = false
 }: BuyNeuroButtonProps) => {
   const createColoredText = (text: string) => {
     const colors = ['var(--colorOrange)', 'var(--colorWhite)', 'var(--colorGreen)', 'var(--colorCyan)'];
@@ -31,12 +35,12 @@ const BuyNeuroButton = ({
     ? 'bg-white/20 p-4 sm:p-6 md:p-6 flex items-center justify-center text-black border-3 max-sm:tracking-tighter border-colorBorder font-third rounded-xl text-center md:text-xl text-xs md:max-w-80 max-w-60 md:leading-5 leading-3'
     : 'bg-white p-4 sm:p-6 md:p-6 text-black flex items-center justify-center rounded-xl max-sm:tracking-tighter md:text-xl text-xs md:max-w-41 max-w-20 md:leading-5 leading-3';
 
-  const content = variant === 'adhd' ? createColoredText(children as string) : children;
+  const content = (variant === 'adhd' && !disableColoredText) ? createColoredText(children as string) : children;
 
   return (
     <Link
       href={href}
-      className={`${baseClasses} ${className}`}
+      className={`${baseClasses} ${customStyles} ${className}`}
     >
       {content}
     </Link>

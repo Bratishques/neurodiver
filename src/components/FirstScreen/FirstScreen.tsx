@@ -127,7 +127,7 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
               </div>
             </div>
             {mode === 'dislexia' || mode === 'bipolar' ? (
-               <div className="flex gap-2 md:gap-6 sm:gap-2">
+               <div className="flex gap-2 md:gap-6 sm:gap-2 max-1xl:flex-col">
                 <BuyNeuroButton
                   href=""
                   variant="adhd"
