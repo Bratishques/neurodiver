@@ -117,13 +117,13 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
               <div className="flex gap-2 md:gap-6 sm:gap-2">
                 <Link
                   href=""
-                  className="bg-white sm:p-6 p-3 md:p-6 p-1 text-black rounded-xl md:text-xl text-xl max-sm:text-xs md:max-w-43 max-md:max-w-80 md:leading-5 leading-3"
+                  className="bg-white max-sm:rounded-md sm:p-6 p-3 md:p-6 p-1 text-black rounded-xl md:text-xl text-xl max-sm:text-xs md:max-w-43 max-md:max-w-80 md:leading-5 leading-3"
                 >
                   Buy $NEURO
                 </Link>
                 <button
                   onClick={openNeuroTest}
-                  className="rounded-xl md:text-xl max-sm:text-xs text-xl sm:p-6 p-3 md:p-6 p-1 cursor-pointer md:max-w-65 md:leading-5 max-md:max-w-80 leading-3 bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all duration-200"
+                  className="rounded-xl max-sm:rounded-md md:text-xl max-sm:text-xs text-xl sm:p-6 p-3 p-1 cursor-pointer md:max-w-65 md:leading-5 max-md:max-w-80 leading-3 bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all duration-200"
                 >
                   Take the Neurotype Test
                 </button>

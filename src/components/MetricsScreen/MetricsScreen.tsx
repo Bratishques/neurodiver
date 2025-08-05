@@ -16,25 +16,25 @@ const MetricsScreen = ({ mode }: MetricsScreenProps) => {
       <FloatingLetter
         src="/icons/letters/b.svg"
         alt="Letter B"
-        className="left-4 sm:left-8 md:left-15 top-16 sm:top-24 md:top-32 z-10 opacity-100"
+        className="left-4 max-md:hidden sm:left-8 md:left-15 top-16 sm:top-24 md:top-32 z-10 opacity-100"
         size={43}
       />
       <FloatingLetter
         src="/icons/letters/x-letter.svg"
         alt="Letter X"
-        className="right-4 sm:right-6 md:right-8 top-8 sm:top-12 md:top-16 z-10"
+        className="right-4 max-md:hidden sm:right-6 md:right-8 top-8 sm:top-12 md:top-16 z-10"
         size={80}
       />
       <FloatingLetter
         src="/icons/letters/d.svg"
         alt="Letter D"
-        className="right-8 sm:right-12 md:right-20 top-1/2 z-10 opacity-70"
+        className="right-8 max-md:hidden sm:right-12 md:right-20 top-1/2 z-10 opacity-70"
         size={78}
       />
       <FloatingLetter
         src="/icons/letters/p.svg"
         alt="Letter P"
-        className="left-8 sm:left-12 md:left-20 top-1/2 z-10 opacity-95"
+        className="left-8 max-md:hidden sm:left-12 md:left-20 top-1/2 z-10 opacity-95"
         size={78}
       />
 
