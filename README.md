@@ -1,38 +1,28 @@
-## Available Scripts
+**Install dependencies**
+
+```bash
+npm install
+```
+
+**Run development server**
+
+```bash
+npm run dev
+```
+
+##Available Scripts
 
 - `npm run dev` - Start development server
-- `npm run build` - Build for production (creates `.next` folder)
-- `npm run build:static` - Build static files (creates `out` folder)
+- `npm run build` - Build for production
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
+- `npm run preview` - Preview static build
 
-## Building Static Files
+## Deployment
 
-To build static files for deployment:
-
-```bash
-npm run build:static
-```
-
-This will:
-1. Create optimized static files in the `out` folder
-2. Copy files to `build` folder (if needed)
-
-The static build includes:
-- All HTML pages
-- Optimized JavaScript bundles
-- CSS styles
-- Static assets (images, fonts, icons)
-
-
-### Quick Test
-
-To test the static build locally:
+The project is configured for static export and can be deployed to any static hosting service:
 
 ```bash
-npm run build:static
-npx serve out
+npm run build
+npm run preview
 ```
-
-Then open http://localhost:3000 to see your static site.
-
