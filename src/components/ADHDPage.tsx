@@ -1,5 +1,10 @@
-import PageLayout from './Layout/PageLayout';
+import AdhdContent from '@/components/AdhdContent/AdhdContent';
+import HeaderOnlyLayout from '@/components/Layout/HeaderOnlyLayout';
 
 export default function ADHDPage() {
-  return <PageLayout mode="adhd" />;
+  return (
+    <HeaderOnlyLayout>
+      <AdhdContent/>
+    </HeaderOnlyLayout>
+  );
 } 

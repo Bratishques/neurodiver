@@ -103,7 +103,7 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
                 around neurodivergent cognition — and the AI agents that support
                 it.
               </span>
-              <div className="bg-firstScreenAccent rounded-xl pl-6 p-4 md:pl-6 md:p-4 pl-3 p-2 flex items-center md:gap-6 gap-3">
+              <div className="bg-firstScreenAccent rounded-xl p-4 md:pl-6 md:p-4 pl-3 p-2 flex items-center md:gap-6 gap-3">
                 <div className="font-bold opacity-50 font-secondary md:text-2xl text-sm">
                   CA
                 </div>
