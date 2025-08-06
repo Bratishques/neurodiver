@@ -1,0 +1,17 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Connect to env and run update script
+        run: |
+          cat << EOF > /tmp/server.key
+          ${{ secrets.PRODUCTION_SERVER_KEY }}
+          EOF
+          chmod 600 /tmp/server.key
+          ssh -i /tmp/server.key -o StrictHostKeyChecking=no ${{ secrets.PRODUCTION_SERVER_USERNAME }}@${{ secrets.PRODUCTION_SERVER_HOST }} -p ${{ secrets.PRODUCTION_SERVER_PORT }}
