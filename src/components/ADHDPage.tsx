@@ -4,7 +4,7 @@ import HeaderOnlyLayout from '@/components/Layout/HeaderOnlyLayout';
 export default function ADHDPage() {
   return (
     <HeaderOnlyLayout>
-      <AdhdContent/>
+      <AdhdContent />
     </HeaderOnlyLayout>
   );
-} 
+}

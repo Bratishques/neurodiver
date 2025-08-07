@@ -27,7 +27,7 @@ const AdhdContent = () => {
 
   return (
     <div className="px-53 max-1xl:px-20 max-lg:px-10 max-sm:px-0 max-md:px-0 relative z-10">
-      <div className="flex w-full text-white mt-74 justify-between">
+      <div className="flex w-full text-white mt-74 max-1xl:mt-60 max-lg:mt-45 justify-between">
         <div className="flex flex-col gap-7 max-md:gap-6 items-center w-full">
           <p className="font-secondary uppercase text-[58px] leading-24 tracking-tighter max-sm:leading-6 max-sm:text-[42px]">
             Neurodivergent
