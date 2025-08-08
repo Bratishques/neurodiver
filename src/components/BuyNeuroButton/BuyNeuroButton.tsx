@@ -85,7 +85,7 @@ const BuyNeuroButton = ({
       />
     );
   } else if (variant === 'dark') {
-    content = children; // Темный вариант всегда использует обычный текст
+    content = children;
   } else {
     content = children;
   }
