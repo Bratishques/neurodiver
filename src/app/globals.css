@@ -20,7 +20,11 @@
   height: 100%;
   z-index: 9998;
   pointer-events: none;
-  background: linear-gradient(to right, rgba(100, 100, 100, 0.6), rgba(140, 140, 140, 0.4));
+  background: linear-gradient(
+    to right,
+    rgba(100, 100, 100, 0.6),
+    rgba(140, 140, 140, 0.4)
+  );
   backdrop-filter: grayscale(100%);
   filter: grayscale(100%) brightness(0.95) contrast(1.02);
   mix-blend-mode: multiply;
@@ -35,7 +39,11 @@
   height: 100%;
   z-index: 9998;
   pointer-events: none;
-  background: linear-gradient(to left, rgba(100, 100, 100, 0.6), rgba(140, 140, 140, 0.4));
+  background: linear-gradient(
+    to left,
+    rgba(100, 100, 100, 0.6),
+    rgba(140, 140, 140, 0.4)
+  );
   backdrop-filter: grayscale(100%);
   filter: grayscale(100%) brightness(0.95) contrast(1.02);
   mix-blend-mode: multiply;
@@ -50,7 +58,11 @@
   height: 100%;
   z-index: 9998;
   pointer-events: none;
-  background: linear-gradient(to right, rgba(100, 100, 100, 0.6), rgba(140, 140, 140, 0.4));
+  background: linear-gradient(
+    to right,
+    rgba(100, 100, 100, 0.6),
+    rgba(140, 140, 140, 0.4)
+  );
   backdrop-filter: grayscale(100%);
   filter: grayscale(100%) brightness(0.95) contrast(1.02);
   mix-blend-mode: multiply;
@@ -72,36 +84,38 @@
   --background: #ffffff;
   --foreground: #171717;
   --headerBg: #1f1f1f;
-  --firstScreenBg: #9E5FF8;
+  --firstScreenBg: #9e5ff8;
   --footerBg: #060708;
 
   /* buttons */
   --ctaButton: #131619;
-  
+  --buyNeuro: #cdcecf;
+  --buyNeuroDark: #272a2e;
+
   /* metrics table colors */
-  --metricsBorder: #761E86;
-  --metricsBg: #9021A4;
-  --firstScreenAccent: #B687FA;
-  
+  --metricsBorder: #761e86;
+  --metricsBg: #9021a4;
+  --firstScreenAccent: #b687fa;
+
   /* colored text colors */
-  --colorOrange: #FFB55A;
-  --colorWhite: #FFFFFF;
-  --colorGreen: #ACFF2B;
-  --colorCyan: #17ECFF;
-  --colorBorder: #FFA65D;
-  
+  --colorOrange: #ffb55a;
+  --colorWhite: #ffffff;
+  --colorGreen: #acff2b;
+  --colorCyan: #17ecff;
+  --colorBorder: #ffa65d;
+
   /* neuro test popup colors */
   --popupOverlay: rgba(0, 0, 0, 0.5);
-  --popupBg: #1F1F1F;
-  --popupText: #FFFFFF;
-  --popupTextSecondary: #9CA3AF;
-  --popupButtonBg: #363A3D;
+  --popupBg: #1f1f1f;
+  --popupText: #ffffff;
+  --popupTextSecondary: #9ca3af;
+  --popupButtonBg: #363a3d;
   --popupButtonHover: #444444;
   --popupButtonActive: #555555;
   --popupButtonCircle: #374151;
-  --popupCloseHover: #D1D5DB;
-  --popupResultButton: #FFFFFF;
-  --popupResultButtonHover: #E5E7EB;
+  --popupCloseHover: #d1d5db;
+  --popupResultButton: #ffffff;
+  --popupResultButtonHover: #e5e7eb;
   --popupResultText: #000000;
 }
 
@@ -114,7 +128,7 @@
   --font-main: 'Inter', sans-serif;
   --font-secondary: 'FreeCheese', sans-serif;
   --font-third: 'OpenDyslexic', sans-serif;
-  
+
   /* Custom breakpoints */
   --breakpoint-3xl: 1700px;
   --breakpoint-xs: 425px;
@@ -122,19 +136,21 @@
 
   /* buttons */
   --color-ctaButton: var(--ctaButton);
-  
+  --color-buyNeuro: var(--buyNeuro);
+  --color-buyNeuroDark: var(--buyNeuroDark);
+
   /* metrics table colors */
   --color-metricsBorder: var(--metricsBorder);
   --color-metricsBg: var(--metricsBg);
   --color-firstScreenAccent: var(--firstScreenAccent);
-  
+
   /* colored text colors */
   --color-colorOrange: var(--colorOrange);
   --color-colorWhite: var(--colorWhite);
   --color-colorGreen: var(--colorGreen);
   --color-colorCyan: var(--colorCyan);
   --color-colorBorder: var(--colorBorder);
-  
+
   /* neuro test popup colors */
   --color-popupOverlay: var(--popupOverlay);
   --color-popupBg: var(--popupBg);
@@ -149,7 +165,6 @@
   --color-popupResultButtonHover: var(--popupResultButtonHover);
   --color-popupResultText: var(--popupResultText);
 }
-
 
 body {
   background: var(--background);
@@ -177,7 +192,7 @@ body {
 }
 
 .bg-phoneContent {
-  background-color: #FFF0CF;
+  background-color: #fff0cf;
 }
 @layer utilities {
   .text-80 {

@@ -131,13 +131,13 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
                 <BuyNeuroButton
                   href=""
                   variant="adhd"
-                  className="md:max-w-41 max-w-fit xl:flex-shrink-0"
+                  className="md:max-w-41 hover:border-white transition-all max-w-fit xl:flex-shrink-0"
                 />
                 <GradientButton
                   onClick={openNeuroTest}
                   type="button"
                   className="xl:flex-1 font-third w-full max-1xl:w-[62%]"
-                  textClassName="text-black"
+                  textClassName="text-black hover:text-white transition-alla"
                 >
                   Take the Neurotype Test
                 </GradientButton>
@@ -146,7 +146,7 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
               <div className="flex gap-2 md:gap-6 sm:gap-2">
                 <Link
                   href=""
-                  className="bg-white max-sm:rounded-md sm:p-6 p-3 md:p-6 p-1 text-black rounded-xl md:text-xl text-xl max-sm:text-xs md:max-w-43 max-md:max-w-80 md:leading-5 leading-3"
+                  className="bg-white hover:bg-buyNeuro transition-all max-sm:rounded-md sm:p-6 p-3 md:p-6 p-1 text-black rounded-xl md:text-xl text-xl max-sm:text-xs md:max-w-43 max-md:max-w-80 md:leading-5 leading-3"
                 >
                   Buy $NEURO
                 </Link>
