@@ -71,17 +71,16 @@ const MetricsScreen = ({ mode }: MetricsScreenProps) => {
             Coming Soon
           </p>
           {mode === 'dislexia' || mode === 'bipolar' ? (
-            <BuyNeuroButton 
-              href="" 
-              variant="adhd" 
-              className="mt-4" 
-              customStyles="max-2xl:!bg-black max-2xl:!text-white max-2xl:!font-main max-2xl:!border-0"
-              disableColoredText={true}
+            <BuyNeuroButton
+              href=""
+              variant="colored"
+              className="mt-4"
+              customStyles="max-2xl:!bg-black hover:border-white max-2xl:!text-white max-2xl:!font-main max-2xl:!border-0"
             />
           ) : (
             <Link
               href=""
-              className="bg-white mt-4 p-4 sm:p-5 md:p-6 px-6 sm:px-8 md:px-10 text-black font-main rounded-xl text-base sm:text-lg md:text-xl leading-5"
+              className="bg-white mt-4 p-4 hover:bg-buyNeuro transition-all sm:p-5 md:p-6 px-6 sm:px-8 md:px-10 text-black font-main rounded-xl text-base sm:text-lg md:text-xl leading-5"
             >
               Buy $NEURO
             </Link>

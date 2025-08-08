@@ -63,7 +63,7 @@ const AdhdContent = () => {
 
             <Link
               href=""
-              className="bg-white/20 p-6 text-black border-3 max-xl:w-[90%] max-sm:w-full border-colorBorder max-1xl:bg-black max-1xl:border-none font-third rounded-xl text-center text-xl w-[60%] leading-5"
+              className="bg-white/20 p-6 text-black hover:border-white transition-all border-3 max-xl:w-[90%] max-sm:w-full border-colorBorder max-1xl:bg-black max-1xl:border-none font-third rounded-xl text-center text-xl w-[60%] leading-5"
             >
               <span className="hidden 1xl:inline">
                 {createColoredText('Buy $NEURO')}

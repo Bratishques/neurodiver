@@ -53,13 +53,13 @@ const Footer = ({ mode }: FooterProps) => {
                 <BuyNeuroButton
                   href=""
                   variant="adhd"
-                  className="max-w-full lg:max-w-79"
+                  className="max-w-full lg:max-w-79 hover:border-white transition-all"
                 />
                 <GradientButton
                   onClick={openNeuroTest}
                   type="button"
                   className="xl:flex-1 font-third w-full"
-                  textClassName="text-black"
+                  textClassName="text-black hover:text-white transition-all"
                 >
                   Take the Neurotype Test
                 </GradientButton>
@@ -68,7 +68,7 @@ const Footer = ({ mode }: FooterProps) => {
               <>
                 <Link
                   href=""
-                  className="bg-ctaButton p-4 sm:p-5 md:p-6 rounded-xl text-base sm:text-lg md:text-xl max-w-full lg:max-w-41 leading-5 text-center"
+                  className="bg-ctaButton hover:bg-buyNeuroDark p-4 sm:p-5 md:p-6 rounded-xl text-base sm:text-lg md:text-xl max-w-full lg:max-w-41 leading-5 text-center"
                 >
                   Buy $NEURO
                 </Link>
