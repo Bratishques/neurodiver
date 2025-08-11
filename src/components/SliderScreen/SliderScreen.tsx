@@ -14,12 +14,12 @@ const SliderScreen = () => {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const slides = [
-    '/images/neuro_slide.png',
-    '/images/neuro_slide.png',
-    '/images/neuro_slide.png',
-    '/images/neuro_slide.png',
-    '/images/neuro_slide.png',
-    '/images/neuro_slide.png',
+    '/images/slides/neuro_slide2.png',
+    '/images/slides/neuro_slide3.png',
+    '/images/slides/neuro_slide4.png',
+    '/images/slides/neuro_slide2.png',
+    '/images/slides/neuro_slide3.png',
+    '/images/slides/neuro_slide4.png',
   ];
 
   const handlePrev = () => {
@@ -70,7 +70,7 @@ const SliderScreen = () => {
         ))}
       </Swiper>
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/70 to-transparent z-10" />
-      
+
       <button
         onClick={handlePrev}
         className="hidden lg:block absolute top-1/2 rounded-xl cursor-pointer left-15 transform -translate-y-1/2 max-w-16 max-h-16 z-10 p-4 bg-white hover:bg-gray-100 transition-colors flex items-center justify-center"
@@ -133,9 +133,7 @@ const SliderScreen = () => {
               key={idx}
               onClick={() => handleDotClick(idx)}
               className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                activeSlide === idx 
-                  ? 'bg-white' 
-                  : 'bg-black/30'
+                activeSlide === idx ? 'bg-white' : 'bg-black/30'
               }`}
               aria-label={`Go to slide ${idx + 1}`}
             />
