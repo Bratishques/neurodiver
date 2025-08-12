@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { PhoneImage } from './PhoneImage';
 import ColoredText from '../ColoredText';
 import FloatingLetter from '../FloatingLetter/FloatingLetter';
+import { StartChatButton } from './StartChatButton';
 
 interface PhoneSectionProps {
   onShowThirdSection: (show: boolean) => void;
@@ -32,10 +33,10 @@ export function PhoneSection({ onShowThirdSection, mode }: PhoneSectionProps) {
         'Meet our symbol of perception beyond the norm.\nA figure representing the beauty of different minds.',
     },
     {
-      image: '/images/scroll-screens/phone-slide3.png',
-      title: 'The AI Agents',
+      image: '/images/scroll-screens/phone-bunny.png',
+      title: 'Get the Bot',
       description:
-        'Autistic, ADHD, bipolar, dyslexic and more —\nSimulated agents that help explore and embody diverse perceptions.',
+        'Talk to the NeuroBot\nYour personal neurotype AI — designed to connect, mirror, and inspire.',
     },
   ];
 
@@ -189,17 +190,21 @@ export function PhoneSection({ onShowThirdSection, mode }: PhoneSectionProps) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.2, ease: 'circInOut' }}
-                className="w-full h-full flex flex-col"
+                className={`w-full h-full flex flex-col ${currentSlideIndex === 2 ? '!h-[80%]' : ''}`}
               >
-                <div className="flex-1 bg-phoneContent pl-9 pt-9 pr-7.5 pb-4 flex flex-col justify-start max-sm:px-5">
+                <div
+                  className={`flex-1 bg-phoneContent pl-9 pt-9 pr-7.5 pb-4 flex flex-col justify-start max-sm:px-5 ${
+                    currentSlideIndex === 2 ? '!pb-0' : ''
+                  }`}
+                >
                   <div className="">
                     <h1 className="font-secondary text-[32px] font-bold max-sm:text-lg max-sm:leading-4.5">
                       NEUROTOK
                     </h1>
                   </div>
 
-                  <div className="mt-12 max-md:mt-9">
-                    <h2 className="font-secondary text-5xl max-sm:text-[32px] max-sm:leading-8 font-bold leading-12 tracking-tighter">
+                  <div className="mt-12 max-lg:mt-9">
+                    <h2 className="font-secondary text-5xl max-lg:text-4xl max-sm:text-[32px] max-sm:leading-8 font-bold leading-12 tracking-tighter">
                       {mode === 'dislexia' || mode === 'bipolar' ? (
                         <ColoredText
                           text={screenData[currentSlideIndex].title}
@@ -223,6 +228,7 @@ export function PhoneSection({ onShowThirdSection, mode }: PhoneSectionProps) {
                   <div className="mt-6">
                     <p
                       className={`font-main text-base leading-6 ${mode === 'dislexia' || mode === 'bipolar' ? 'font-third' : ''}`}
+                      style={{ whiteSpace: 'pre-line' }}
                     >
                       {screenData[currentSlideIndex].description}
                     </p>
@@ -232,13 +238,27 @@ export function PhoneSection({ onShowThirdSection, mode }: PhoneSectionProps) {
                 <Image
                   width="444"
                   height="579"
-                  className=""
+                  className="bg-inherit"
                   src={screenData[currentSlideIndex].image}
                   alt="phone-slide"
                 />
               </motion.div>
             </AnimatePresence>
           </PhoneImage>
+
+          <AnimatePresence>
+            {currentSlideIndex === 2 && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
+                className="absolute bottom-20 max-lg:bottom-10 max-sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+              >
+                <StartChatButton mode={mode} href="/" />
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           <div className="absolute -left-8 top-1/2 transform -translate-y-1/2 flex flex-col gap-2">
             {screenData.map((_, index) => (
@@ -258,7 +278,7 @@ export function PhoneSection({ onShowThirdSection, mode }: PhoneSectionProps) {
           </div>
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 z-20">
+      <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
         <Image
           src="/images/metrics-bunny.png"
           alt="Announcement bunny"

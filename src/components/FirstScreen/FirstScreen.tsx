@@ -80,7 +80,7 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
                     className="lg:text-[54px] max-sm:text-[40px] text-4xl leading-16 tracking-[-2.7px] font-bold"
                     text="A new kind of OS."
                   />
-                  <br className="max-sm:hidden"/>
+                  <br className="max-sm:hidden" />
                   <ColoredText
                     className="lg:text-[54px] text-4xl max-sm:text-[40px] lg:leading-16 tracking-[-2.7px] font-bold"
                     text="For different kinds of minds."
@@ -99,9 +99,9 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
               <span
                 className={`md:leading-9 md:text-2xl text-sm leading-5 max-md:max-w-[76%] max-sm:max-w-full ${mode === 'dislexia' || mode === 'bipolar' ? 'font-third' : ''}`}
               >
-                We&apos;re building the world&apos;s first operating system designed
-                around neurodivergent cognition — and the AI agents that support
-                it.
+                We&apos;re building the world&apos;s first operating system
+                designed around neurodivergent cognition — and the AI agents
+                that support it.
               </span>
               <div className="bg-firstScreenAccent rounded-xl p-4 md:pl-6 md:p-4 pl-3 p-2 flex items-center md:gap-6 gap-3">
                 <div className="font-bold opacity-50 font-secondary md:text-2xl text-sm">
@@ -127,7 +127,7 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
               </div>
             </div>
             {mode === 'dislexia' || mode === 'bipolar' ? (
-               <div className="flex gap-2 md:gap-6 sm:gap-2 max-1xl:flex-col">
+              <div className="flex gap-2 md:gap-6 sm:gap-2 max-1xl:flex-col">
                 <BuyNeuroButton
                   href=""
                   variant="adhd"
