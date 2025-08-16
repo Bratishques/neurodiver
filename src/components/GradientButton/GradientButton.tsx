@@ -14,7 +14,7 @@ interface GradientButtonProps {
 const GradientButton = ({
   className = '',
   href = '',
-  children = 'Take the Neurotype Test',
+  children = 'Take the 0xytype Test',
   onClick,
   type = 'link',
   textClassName,
@@ -40,11 +40,7 @@ const GradientButton = ({
         direction="left"
         className="w-full h-full overflow-hidden"
       >
-        <img
-          src={gradientSrc}
-          alt="gradient"
-          className="h-full w-auto"
-        />
+        <img src={gradientSrc} alt="gradient" className="h-full w-auto" />
         <img
           src={gradientSrc}
           alt="gradient duplicate"

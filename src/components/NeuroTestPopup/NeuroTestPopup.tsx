@@ -16,7 +16,6 @@ const NeuroTestPopup = ({ isOpen, onClose, mode }: NeuroTestPopupProps) => {
   const [currentResult, setCurrentResult] = useState<TestResult | null>(null);
   const [currentColorIndex, setCurrentColorIndex] = useState(0);
 
-
   const dislexiaColors = ['#FF41A4', '#78FF7F', '#FFB55A', '#17ECFF'];
   const blackColor = '#000000';
 

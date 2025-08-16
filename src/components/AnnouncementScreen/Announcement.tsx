@@ -161,7 +161,7 @@ const Announcement = ({ mode }: AnnouncementProps) => {
             />
             <br />
             <ColoredText
-              text="Neurotype journeys."
+              text="0xytype journeys."
               className="font-third text-[64px] max-md:text-5xl max-md:leading-14.5 max-sm:text-[32px] max-sm:leading-9.5 font-bold max-md:tracking-[-2.7px] tracking-tighter"
               colors={['#329BFE', '#A30606', '#74B116', '#FF50BF', '#FFD11A']}
             />
@@ -170,7 +170,7 @@ const Announcement = ({ mode }: AnnouncementProps) => {
           <h3 className="font-secondary sm:text-80 text-5xl tracking-tighter mx-auto w-fit text-center mb-12">
             Real reactions.
             <br /> Community memes. <br />
-            Neurotype journeys.
+            0xytype journeys.
           </h3>
         )}
 

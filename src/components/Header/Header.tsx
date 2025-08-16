@@ -67,11 +67,11 @@ const Header = ({ mode }: HeaderProps) => {
         >
           {mode === 'dislexia' || mode === 'bipolar' ? (
             <ColoredText
-              text="NEURODIVERGENT"
+              text="OXY"
               colors={['#63B3FF', '#ACFF2B', '#FCFF33', '#FF50BF']}
             />
           ) : (
-            'NEURODIVERGENT'
+            'OXY'
           )}
         </Link>
 
