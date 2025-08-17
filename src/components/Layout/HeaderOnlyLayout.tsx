@@ -13,7 +13,7 @@ const HeaderOnlyLayout = ({ children }: HeaderOnlyLayoutProps) => {
       </div>
       <div className="absolute bottom-7 left-1/2 transform -translate-x-1/2 z-10">
         <p className="text-white/40 text-base">
-          © 2025 Neuro. All rights reserved.
+          © 2025 0xy. All rights reserved.
         </p>
       </div>
     </div>

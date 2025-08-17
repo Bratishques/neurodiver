@@ -82,7 +82,7 @@ const MetricsScreen = ({ mode }: MetricsScreenProps) => {
               href=""
               className="bg-white mt-4 p-4 hover:bg-buyNeuro transition-all sm:p-5 md:p-6 px-6 sm:px-8 md:px-10 text-black font-main rounded-xl text-base sm:text-lg md:text-xl leading-5"
             >
-              Buy $NEURO
+              Buy $0xy
             </Link>
           )}
         </div>

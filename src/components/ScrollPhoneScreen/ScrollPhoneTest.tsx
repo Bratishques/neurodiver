@@ -22,21 +22,21 @@ export function PhoneSection({ onShowThirdSection, mode }: PhoneSectionProps) {
   const screenData = [
     {
       image: '/images/scroll-screens/phone-slide1.png',
-      title: 'What is\n the project?',
+      title: 'What is\n the character?',
       description:
-        'A future-facing system for alternative minds.\nRespecting cognitive difference. Powered by\nneurotype-modeled AI.',
+        'Meet our symbol of perception beyond the norm. A figure representing the beauty of different minds.',
     },
     {
       image: '/images/scroll-screens/phone-slide2.png',
-      title: 'Who is\n the character?',
+      title: 'The AI Agents',
       description:
-        'Meet our symbol of perception beyond the norm.\nA figure representing the beauty of different minds.',
+        'Autistic, ADHD, bipolar, dyslexic and more —\n Simulated agents that help explore and embody diverse perceptions.',
     },
     {
       image: '/images/scroll-screens/phone-bunny.png',
       title: 'Get the Bot',
       description:
-        'Talk to the NeuroBot\nYour personal neurotype AI — designed to connect, mirror, and inspire.',
+        'Talk to the 0xyBot\nYour personal 0xytype AI — designed to connect, mirror, and inspire.',
     },
   ];
 
@@ -199,7 +199,7 @@ export function PhoneSection({ onShowThirdSection, mode }: PhoneSectionProps) {
                 >
                   <div className="">
                     <h1 className="font-secondary text-[32px] font-bold max-sm:text-lg max-sm:leading-4.5">
-                      NEUROTOK
+                      0XYTOK
                     </h1>
                   </div>
 

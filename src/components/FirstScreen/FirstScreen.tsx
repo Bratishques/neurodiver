@@ -100,8 +100,8 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
                 className={`md:leading-9 md:text-2xl text-sm leading-5 max-md:max-w-[76%] max-sm:max-w-full ${mode === 'dislexia' || mode === 'bipolar' ? 'font-third' : ''}`}
               >
                 We&apos;re building the world&apos;s first operating system
-                designed around neurodivergent cognition — and the AI agents
-                that support it.
+                designed around 0xy cognition — and the AI agents that support
+                it.
               </span>
               <div className="bg-firstScreenAccent rounded-xl p-4 md:pl-6 md:p-4 pl-3 p-2 flex items-center md:gap-6 gap-3">
                 <div className="font-bold opacity-50 font-secondary md:text-2xl text-sm">
@@ -139,7 +139,7 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
                   className="xl:flex-1 font-third w-full max-1xl:w-[62%]"
                   textClassName="text-black hover:text-white transition-alla"
                 >
-                  Take the Neurotype Test
+                  Take the 0xytype Test
                 </GradientButton>
               </div>
             ) : (
@@ -148,13 +148,13 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
                   href=""
                   className="bg-white hover:bg-buyNeuro transition-all max-sm:rounded-md sm:p-6 p-3 md:p-6 p-1 text-black rounded-xl md:text-xl text-xl max-sm:text-xs md:max-w-43 max-md:max-w-80 md:leading-5 leading-3"
                 >
-                  Buy $NEURO
+                  Buy $0xy
                 </Link>
                 <button
                   onClick={openNeuroTest}
                   className="rounded-xl max-sm:rounded-md md:text-xl max-sm:text-xs text-xl sm:p-6 p-3 p-1 cursor-pointer md:max-w-65 md:leading-5 max-md:max-w-80 leading-3 bg-white/20 hover:bg-white/30 active:bg-white/40 transition-all duration-200"
                 >
-                  Take the Neurotype Test
+                  Take the 0xytype Test
                 </button>
               </div>
             )}
@@ -165,7 +165,7 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
               <div className="text-center mb-4">
                 <p className="text-white/20 text-[32px] font-medium">
                   It&apos;s much more advantageous
-                  <br /> to buy $NEURO here!
+                  <br /> to buy $0xy here!
                 </p>
               </div>
 
