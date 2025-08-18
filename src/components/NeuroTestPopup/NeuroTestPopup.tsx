@@ -59,7 +59,7 @@ const NeuroTestPopup = ({ isOpen, onClose, mode }: NeuroTestPopupProps) => {
   return (
     <div className="fixed inset-0 bg-popupOverlay z-50 flex items-center justify-center">
       <div
-        className={`w-full ${(mode === 'dislexia' || mode === 'bipolar') && !showResults ? 'font-third' : 'bg-popupBg'} rounded-3xl mt-30 mx-auto flex flex-col ${showResults ? 'max-w-150' : 'max-w-200 pb-10'}`}
+        className={`w-full ${(mode === 'dislexia' || mode === 'bipolar') && !showResults ? 'font-third' : 'bg-popupBg'} rounded-3xl mx-auto flex flex-col ${showResults ? 'max-w-150' : 'max-w-200 pb-10'}`}
         style={
           (mode === 'dislexia' || mode === 'bipolar') && !showResults
             ? { backgroundColor: getCurrentDislexiaColor() }
