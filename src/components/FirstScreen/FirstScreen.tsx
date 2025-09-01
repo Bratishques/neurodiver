@@ -109,7 +109,7 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
                 </div>
                 <div className="flex-1">
                   <div className="bg-transparent text-white font-main md:text-xl text-xs w-full outline-none select-all break-all md:whitespace-nowrap">
-                    0xA1B2C3D4E5F67890ABCDEF1234567890ABCDEF12
+                    HELPAAkTAeKdoCiJXBYCrbMfdjFH2h1XcwjtXJzPANgY
                   </div>
                 </div>
                 <button
