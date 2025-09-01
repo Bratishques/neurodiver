@@ -33,10 +33,10 @@ const navigationItems = [
 ];
 
 const socialIcons = [
-  { href: '', icon: '/icons/x.svg', alt: 'x-icon' },
-  { href: '', icon: '/icons/tg.svg', alt: 'tg-icon' },
-  { href: '', icon: '/icons/tiktok.svg', alt: 'tiktok-icon' },
-  { href: '', icon: '/icons/bird.svg', alt: 'bird-icon' },
+  { href: 'https://x.com/Neuro_0xy', icon: '/icons/x.svg', alt: 'x-icon' },
+  { href: 'https://t.me/oxytocin_portal', icon: '/icons/tg.svg', alt: 'tg-icon' },
+  { href: 'https://www.tiktok.com/@neuro_adhd', icon: '/icons/tiktok.svg', alt: 'tiktok-icon' },
+  { href: 'https://dexscreener.com/solana/7p1gu7gcxmei46p7jwpmujvahplywslrtnh2ieujv2nd', icon: '/icons/bird.svg', alt: 'bird-icon' },
 ];
 
 const Header = ({ mode }: HeaderProps) => {
@@ -125,7 +125,7 @@ const Header = ({ mode }: HeaderProps) => {
               whileTap={{ scale: 0.9 }}
               transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             >
-              <Link href={social.href}>
+              <Link href={social.href} target="_blank">
                 <Image
                   src={social.icon}
                   width="16"

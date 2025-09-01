@@ -81,7 +81,7 @@ const Footer = ({ mode }: FooterProps) => {
             )}
 
             <div className="flex items-center gap-4 sm:gap-6 md:gap-8.5">
-              <Link href="">
+              <Link href="https://x.com/Neuro_0xy" target="_blank">
                 <Image
                   src="/icons/x.svg"
                   width="32"
@@ -90,7 +90,7 @@ const Footer = ({ mode }: FooterProps) => {
                   alt="x-icon"
                 />
               </Link>
-              <Link href="">
+              <Link href="https://t.me/oxytocin_portal" target="_blank">
                 <Image
                   src="/icons/tg.svg"
                   width="32"
@@ -99,7 +99,7 @@ const Footer = ({ mode }: FooterProps) => {
                   alt="tg-icon"
                 />
               </Link>
-              <Link href="">
+              <Link href="https://www.tiktok.com/@neuro_adhd" target="_blank">
                 <Image
                   src="/icons/tiktok.svg"
                   width="32"
@@ -108,7 +108,7 @@ const Footer = ({ mode }: FooterProps) => {
                   alt="tiktok-icon"
                 />
               </Link>
-              <Link href="">
+              <Link href="https://dexscreener.com/solana/7p1gu7gcxmei46p7jwpmujvahplywslrtnh2ieujv2nd" target="_blank">
                 <Image
                   src="/icons/bird.svg"
                   width="32"
