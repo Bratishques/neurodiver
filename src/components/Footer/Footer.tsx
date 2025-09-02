@@ -108,7 +108,7 @@ const Footer = ({ mode }: FooterProps) => {
                   alt="tiktok-icon"
                 />
               </Link>
-              <Link href="https://dexscreener.com/solana/7p1gu7gcxmei46p7jwpmujvahplywslrtnh2ieujv2nd" target="_blank">
+              <Link href="#" target="_blank">
                 <Image
                   src="/icons/bird.svg"
                   width="32"

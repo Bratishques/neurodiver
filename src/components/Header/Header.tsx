@@ -36,7 +36,7 @@ const socialIcons = [
   { href: 'https://x.com/Neuro_0xy', icon: '/icons/x.svg', alt: 'x-icon' },
   { href: 'https://t.me/oxytocin_portal', icon: '/icons/tg.svg', alt: 'tg-icon' },
   { href: 'https://www.tiktok.com/@neuro_adhd', icon: '/icons/tiktok.svg', alt: 'tiktok-icon' },
-  { href: 'https://dexscreener.com/solana/7p1gu7gcxmei46p7jwpmujvahplywslrtnh2ieujv2nd', icon: '/icons/bird.svg', alt: 'bird-icon' },
+  { href: '', icon: '/icons/bird.svg', alt: 'bird-icon' },
 ];
 
 const Header = ({ mode }: HeaderProps) => {
