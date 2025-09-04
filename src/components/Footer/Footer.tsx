@@ -46,6 +46,26 @@ const Footer = ({ mode }: FooterProps) => {
               © 2025 0xy. All rights reserved.
             </p>
           </div>
+          <div className="flex flex-col gap-3 sm:gap-4">
+            {mode === 'dislexia' || mode === 'bipolar' ? (
+              <ColoredText
+                text="0XY"
+                colors={['#63B3FF']}
+                className="font-secondary text-[28px] md:text-[56px] lg:text-[75px] tracking-tighter"
+              />
+            ) : (
+              <p className="font-secondary text-[28px] md:text-[56px] lg:text-[75px] tracking-tighter leading-tight">
+                &nbsp;
+              </p>
+            )}
+            <span
+              className={`text-sm sm:text-base leading-5 sm:leading-6 ${mode === 'dislexia' || mode === 'bipolar' ? 'font-third' : ''}`}
+            >
+              Geek Technologies FZ-LLC
+              <br /> FOAM1335 Compass Building, AL Hamra Industrial Zone-FZ, Ras Al Khaimah, UAE
+              <br /> trading@geektechnologies.ae
+            </span>
+          </div>
           <div className="flex flex-col items-start md:items-end gap-4 sm:gap-6 mt-2 lg:mt-4 w-fit lg:w-auto">
             {mode === 'dislexia' || mode === 'bipolar' ? (
               <>
