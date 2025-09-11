@@ -86,7 +86,7 @@ const Footer = ({ mode }: FooterProps) => {
             ) : (
               <>
                 <Link
-                  href=""
+                  href="https://dexscreener.com/solana/exjphjubhmfb9fxklrxctwucdkrdemjnt9hv4ghywpr8"
                   className="bg-ctaButton hover:bg-buyNeuroDark p-4 sm:p-5 md:p-6 rounded-xl text-base sm:text-lg md:text-xl max-w-full lg:max-w-41 leading-5 text-center"
                 >
                   Buy $0xy
