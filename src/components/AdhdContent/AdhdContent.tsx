@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const AdhdContent = () => {
   const handleCopy = () => {
-    navigator.clipboard.writeText('0xA1B2C3D4E5F67890ABCDEF1234567890ABCDEF12');
+    navigator.clipboard.writeText('oxynABVJXUEc9PLNx4m1XVdiFtRhStzRXG1G6qosni1');
   };
 
   const createColoredText = (text: string) => {
@@ -41,7 +41,7 @@ const AdhdContent = () => {
                 <div className="flex-1">
                   <input
                     type="text"
-                    value="0xA1B2C3D4E5F67890ABCDEF1234567890ABCDEF12"
+                    value="oxynABVJXUEc9PLNx4m1XVdiFtRhStzRXG1G6qosni1"
                     readOnly
                     className="bg-transparent text-white font-main text-xl w-full outline-none"
                   />

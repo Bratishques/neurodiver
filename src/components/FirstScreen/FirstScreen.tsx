@@ -19,7 +19,7 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
     useNeuroTestContext();
 
   const handleCopy = () => {
-    navigator.clipboard.writeText('0xA1B2C3D4E5F67890ABCDEF1234567890ABCDEF12');
+    navigator.clipboard.writeText('oxynABVJXUEc9PLNx4m1XVdiFtRhStzRXG1G6qosni1');
   };
 
   return (
