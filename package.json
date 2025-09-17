@@ -12,11 +12,13 @@
     "preview": "npx serve out"
   },
   "dependencies": {
+    "@types/recharts": "^1.8.29",
     "framer-motion": "^12.23.12",
     "next": "^15.4.5",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-fast-marquee": "^1.6.5",
+    "recharts": "^3.2.1",
     "swiper": "^11.2.10"
   },
   "devDependencies": {

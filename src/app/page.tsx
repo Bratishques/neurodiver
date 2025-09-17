@@ -1,5 +1,5 @@
-import PageLayout from '@/components/Layout/PageLayout';
+import DislexiaPage from '@/components/DislexiaPage';
 
 export default function Home() {
-  return <PageLayout />;
+  return <DislexiaPage />;
 }

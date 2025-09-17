@@ -145,7 +145,7 @@ const FirstScreen = ({ mode }: FirstScreenProps) => {
             ) : (
               <div className="flex gap-2 md:gap-6 sm:gap-2">
                 <Link
-                  href=""
+                  href="https://dexscreener.com/solana/exjphjubhmfb9fxklrxctwucdkrdemjnt9hv4ghywpr8"
                   className="bg-white hover:bg-buyNeuro transition-all max-sm:rounded-md sm:p-6 p-3 md:p-6 p-1 text-black rounded-xl md:text-xl text-xl max-sm:text-xs md:max-w-43 max-md:max-w-80 md:leading-5 leading-3"
                 >
                   Buy $0xy

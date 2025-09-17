@@ -103,6 +103,7 @@
   --colorGreen: #acff2b;
   --colorCyan: #17ecff;
   --colorBorder: #ffa65d;
+  --colorCream: #fff0cf;
 
   /* neuro test popup colors */
   --popupOverlay: rgba(0, 0, 0, 0.5);
@@ -150,6 +151,7 @@
   --color-colorGreen: var(--colorGreen);
   --color-colorCyan: var(--colorCyan);
   --color-colorBorder: var(--colorBorder);
+  --color-colorCream: var(--colorCream);
 
   /* neuro test popup colors */
   --color-popupOverlay: var(--popupOverlay);
@@ -190,12 +192,17 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
-
+.recharts-wrapper path:focus {
+  outline: none;
+}
 .bg-phoneContent {
   background-color: #fff0cf;
 }
 @layer utilities {
   .text-80 {
     @apply text-[80px] leading-[80px];
+  }
+  .text-cream {
+    color: var(--colorCream);
   }
 }
