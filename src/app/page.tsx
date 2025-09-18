@@ -1,5 +1,5 @@
-import DislexiaPage from '@/components/DislexiaPage';
+import { redirect } from 'next/navigation';
 
 export default function Home() {
-  return <DislexiaPage />;
+  redirect('/dislexia');
 }

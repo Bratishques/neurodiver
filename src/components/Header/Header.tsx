@@ -13,7 +13,7 @@ interface HeaderProps {
 const navigationItems = [
   {
     id: 'classic',
-    href: '/',
+    href: '/classic',
     icon: '/icons/classic-mode.svg',
     label: 'Classic',
   },

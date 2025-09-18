@@ -1,6 +1,7 @@
 import DislexiaPage from '@/components/DislexiaPage';
 import ADHDPage from '@/components/ADHDPage';
 import BipolarPage from '@/components/BipolarPage';
+import ClassicPage from '@/components/ClassicPage';
 
 interface PageProps {
   params: Promise<{
@@ -10,6 +11,7 @@ interface PageProps {
 
 export async function generateStaticParams() {
   return [
+    { mode: 'classic' },
     { mode: 'dislexia' },
     { mode: 'adhd' },
     { mode: 'bipolar' },
@@ -20,6 +22,8 @@ export default async function ModePage({ params }: PageProps) {
   const { mode } = await params;
 
   switch (mode) {
+    case 'classic':
+      return <ClassicPage />;
     case 'dislexia':
       return <DislexiaPage />;
     case 'adhd':
