@@ -57,6 +57,7 @@ const MetricsDiagram = ({ mode }: MetricsDiagramProps) => {
       return {
         innerRadius: 60,
         outerRadius: 140,
+        cornerRadius: 8,
         containerHeight: 400,
         fontSize: { large: 24, medium: 14, small: 10 },
         showLines: false,
@@ -69,6 +70,7 @@ const MetricsDiagram = ({ mode }: MetricsDiagramProps) => {
       return {
         innerRadius: 70,
         outerRadius: 160,
+        cornerRadius: 6,
         containerHeight: 600,
         fontSize: { large: 30, medium: 16, small: 12 },
         showLines: true,
@@ -89,6 +91,7 @@ const MetricsDiagram = ({ mode }: MetricsDiagramProps) => {
       return {
         innerRadius: 80,
         outerRadius: 200,
+        cornerRadius: 7,
         containerHeight: 700,
         fontSize: { large: 36, medium: 20, small: 16 },
         showLines: true,
@@ -108,6 +111,7 @@ const MetricsDiagram = ({ mode }: MetricsDiagramProps) => {
     return {
       innerRadius: 120,
       outerRadius: 280,
+      cornerRadius: 9,
       containerHeight: 820,
       fontSize: { large: 48, medium: 24, small: 18 },
       showLines: true,
@@ -291,11 +295,11 @@ const MetricsDiagram = ({ mode }: MetricsDiagramProps) => {
                 </linearGradient>
               ))}
             </defs>
-            <Pie data={data} cx="50%" cy="50%" innerRadius={config.innerRadius} outerRadius={config.outerRadius} paddingAngle={0} cornerRadius={9} startAngle={90} endAngle={-270} stroke="none" dataKey="value" label={(props: PieLabelRenderProps) => renderLabel(props as unknown as CustomLabelProps)} labelLine={false}>
+            <Pie data={data} cx="50%" cy="50%" innerRadius={config.innerRadius} outerRadius={config.outerRadius} paddingAngle={0} cornerRadius={config.cornerRadius} startAngle={90} endAngle={-270} stroke="none" dataKey="value" label={(props: PieLabelRenderProps) => renderLabel(props as unknown as CustomLabelProps)} labelLine={false}>
               {data.map((entry, index) => <Cell key={`cell-${index}`} fill={entry.color} />)}
             </Pie>
             {config.showLines && (
-              <Pie data={data} cx="50%" cy="50%" innerRadius={config.innerRadius} outerRadius={config.outerRadius} paddingAngle={0} cornerRadius={9} startAngle={90} endAngle={-270} stroke="none" dataKey="value" label={(props: PieLabelRenderProps) => renderCustomLabel(props as unknown as CustomLabelProps)} labelLine={false}>
+              <Pie data={data} cx="50%" cy="50%" innerRadius={config.innerRadius} outerRadius={config.outerRadius} paddingAngle={0} cornerRadius={config.cornerRadius} startAngle={90} endAngle={-270} stroke="none" dataKey="value" label={(props: PieLabelRenderProps) => renderCustomLabel(props as unknown as CustomLabelProps)} labelLine={false}>
                 {data.map((_, index) => <Cell key={`label-${index}`} fill="transparent" />)}
               </Pie>
             )}
