@@ -1,11 +1,18 @@
 'use client';
-import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer, PieLabelRenderProps } from 'recharts';
 import { useState, useEffect } from 'react';
 
 interface MetricsDiagramProps {
   mode?: string;
 }
-
+interface CustomLabelProps {
+  cx: number;
+  cy: number;
+  outerRadius: number;
+  midAngle: number;
+  percent?: number;
+  index?: number;
+}
 const MetricsDiagram = ({ mode }: MetricsDiagramProps) => {
   const [windowWidth, setWindowWidth] = useState(0);
 
@@ -112,15 +119,16 @@ const MetricsDiagram = ({ mode }: MetricsDiagramProps) => {
 
   const config = getAdaptiveConfig();
 
-  const renderLabel = ({ cx, cy, midAngle, outerRadius, percent }: any) => {
+  const renderLabel = ({ cx, cy, midAngle, outerRadius, percent }: CustomLabelProps) => {
+    if (!percent) return null;
     const value = +(percent * 100).toFixed(1);
     if (value === 2) return null;
 
     if (config.showTable) {
       const offset = config.outerRadius === 140 ? 30 : 35;
       const radius = outerRadius - offset;
-      let x = cx + radius * Math.cos((-midAngle * Math.PI) / 180);
-      let y = cy + radius * Math.sin((-midAngle * Math.PI) / 180);
+      const x = cx + radius * Math.cos((-midAngle * Math.PI) / 180);
+      const y = cy + radius * Math.sin((-midAngle * Math.PI) / 180);
 
       let fontSize = config.fontSize.medium;
       if (value > 50) fontSize = config.fontSize.large;
@@ -154,7 +162,8 @@ const MetricsDiagram = ({ mode }: MetricsDiagramProps) => {
     );
   };
 
-  const renderCustomLabel = ({ cx, cy, midAngle, outerRadius, index }: any) => {
+  const renderCustomLabel = ({ cx, cy, midAngle, outerRadius, index }: CustomLabelProps) => {
+    if (index === undefined) return null;
     const item = data[index];
     const line = config.lineConfig[index];
 
@@ -172,8 +181,8 @@ const MetricsDiagram = ({ mode }: MetricsDiagramProps) => {
     if (line.firstVerticalUp) { midX = startX; midY = startY - (line.horizontalLength || 0); }
     else { midX = startX + (startX < cx ? -line.horizontalLength : line.horizontalLength); midY = startY; }
 
-    let endX = line.isVertical ? midX : midX + (line.offsetX || 0);
-    let endY = midY + (line.offsetY || 0);
+    const endX = line.isVertical ? midX : midX + (line.offsetX || 0);
+    const endY = midY + (line.offsetY || 0);
 
     let finalX = line.thirdSegmentX !== undefined ? endX + line.thirdSegmentX : endX;
     let finalY = endY;
@@ -195,7 +204,7 @@ const MetricsDiagram = ({ mode }: MetricsDiagramProps) => {
       }
     if (line.extraSegments?.length) {
       let prevX = finalX, prevY = finalY;
-      line.extraSegments.forEach(seg => {
+      line.extraSegments.forEach((seg: { x?: number; y?: number }) => {
         const nextX = seg.x !== undefined ? prevX + seg.x : prevX;
         const nextY = seg.y !== undefined ? prevY + seg.y : prevY;
         prevX = nextX; prevY = nextY;
@@ -282,11 +291,11 @@ const MetricsDiagram = ({ mode }: MetricsDiagramProps) => {
                 </linearGradient>
               ))}
             </defs>
-            <Pie data={data} cx="50%" cy="50%" innerRadius={config.innerRadius} outerRadius={config.outerRadius} paddingAngle={0} cornerRadius={9} startAngle={90} endAngle={-270} stroke="none" dataKey="value" label={renderLabel} labelLine={false}>
+            <Pie data={data} cx="50%" cy="50%" innerRadius={config.innerRadius} outerRadius={config.outerRadius} paddingAngle={0} cornerRadius={9} startAngle={90} endAngle={-270} stroke="none" dataKey="value" label={(props: PieLabelRenderProps) => renderLabel(props as unknown as CustomLabelProps)} labelLine={false}>
               {data.map((entry, index) => <Cell key={`cell-${index}`} fill={entry.color} />)}
             </Pie>
             {config.showLines && (
-              <Pie data={data} cx="50%" cy="50%" innerRadius={config.innerRadius} outerRadius={config.outerRadius} paddingAngle={0} cornerRadius={9} startAngle={90} endAngle={-270} stroke="none" dataKey="value" label={renderCustomLabel} labelLine={false}>
+              <Pie data={data} cx="50%" cy="50%" innerRadius={config.innerRadius} outerRadius={config.outerRadius} paddingAngle={0} cornerRadius={9} startAngle={90} endAngle={-270} stroke="none" dataKey="value" label={(props: PieLabelRenderProps) => renderCustomLabel(props as unknown as CustomLabelProps)} labelLine={false}>
                 {data.map((_, index) => <Cell key={`label-${index}`} fill="transparent" />)}
               </Pie>
             )}
