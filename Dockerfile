@@ -1,19 +1,9 @@
-FROM ubuntu:22.04
-
-ENV DEBIAN_FRONTEND=noninteractive
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
-
-RUN apt -y update
-RUN apt -y install locales
-RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && locale-gen
-
-RUN apt -y install curl vim build-essential tzdata
-
-RUN curl -sL https://deb.nodesource.com/setup_current.x | bash -
-
-RUN apt-get install -y nodejs
-
-COPY . /app
+FROM node:22-alpine AS build
 WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+FROM nginx:alpine
+COPY --from=build /app/out /usr/share/nginx/html
